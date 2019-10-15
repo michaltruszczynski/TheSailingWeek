@@ -349,4 +349,43 @@ body {
   color: #06171E;
   font-weight: 400;
 }
+
+h1,
+h2,
+h3,
+figure {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+*::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  display: -ms-grid;
+  display: grid;
+  padding: 5em 0;
+}
+
+.section--carousel {
+  height: 100vh;
+  background-image: url(../images/slide_1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  position: absolute;
+}
 /*# sourceMappingURL=main.css.map */

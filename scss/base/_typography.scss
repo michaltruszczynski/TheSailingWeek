@@ -6,3 +6,14 @@ body {
     color: $clr-black-custom;
     font-weight: $fw-normal;
 }
+
+h1,
+h2,
+h3,
+figure {
+    margin: 0;
+}
+
+p {
+  margin-bottom: 1em;
+}

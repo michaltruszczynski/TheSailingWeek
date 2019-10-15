@@ -1,0 +1,21 @@
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section {
+    display: grid;
+    padding: 5em 0;
+}
+
+.section--carousel {
+    height: 100vh;
+    background-image: url(../images/slide_1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
