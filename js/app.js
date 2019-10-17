@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    //MENU
+    //MENU - bgc on scroll
     const nav = document.querySelector('nav');
 
     function fixNav() {
@@ -12,5 +12,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
 
     window.addEventListener('scroll', fixNav);
+
+    //MENU - open/close on click
+
+    const menuBtn = document.querySelector('.menu__toggle');
+    const menu = document.querySelector('nav ul');
+
+    console.log(menuBtn)
+
+    function menuToggle() {
+        menu.classList.toggle('menu--toggle')
+    }
+
+    menuBtn.addEventListener('click', menuToggle);
 
 } );

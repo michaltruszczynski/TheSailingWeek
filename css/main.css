@@ -393,6 +393,9 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -407,6 +410,8 @@ nav ul {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 nav ul a {
@@ -431,13 +436,49 @@ nav ul a:hover {
   color: #41889D;
 }
 
-.menu__logo {
-  width: 50px;
+.logo {
   margin: auto 2em;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.menu__logo p {
-  display: inline-block;
+.logo img {
+  width: 3em;
+}
+
+.logo p {
+  color: #F1F0EE;
+}
+
+.menu__toggle {
+  font-size: 1.5em;
+  margin: auto 2em;
+  color: #F1F0EE;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 969px) {
+  nav {
+    padding: 0.5em;
+  }
+  nav ul {
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 4.50em;
+    left: -100%;
+    width: 100%;
+    text-align: center;
+  }
+  nav ul.menu--toggle {
+    left: 0;
+  }
+  .menu__toggle {
+    display: block;
+  }
 }
 /*# sourceMappingURL=main.css.map */
