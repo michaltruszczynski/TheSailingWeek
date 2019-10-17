@@ -71,6 +71,7 @@ nav {
     nav {
         // display: block;
         padding: 0.5em;
+        background-color: $clr-bg;
 
         ul {
             position: absolute;
@@ -79,6 +80,16 @@ nav {
             left: -100%;
             width: 100%;
             text-align: center;
+
+            a {
+                background-color: $clr-bg;
+                border: 1px solid $clr-blue-dark;
+
+                &:hover {
+                    background-color: $clr-white-custom;
+                    color: $clr-bg;
+                }
+            }
         }
 
         ul.menu--toggle {

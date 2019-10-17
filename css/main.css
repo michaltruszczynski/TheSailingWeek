@@ -462,6 +462,7 @@ nav ul a:hover {
 @media (max-width: 969px) {
   nav {
     padding: 0.5em;
+    background-color: #41889D;
   }
   nav ul {
     position: absolute;
@@ -473,6 +474,14 @@ nav ul a:hover {
     left: -100%;
     width: 100%;
     text-align: center;
+  }
+  nav ul a {
+    background-color: #41889D;
+    border: 1px solid #4F748B;
+  }
+  nav ul a:hover {
+    background-color: #F1F0EE;
+    color: #41889D;
   }
   nav ul.menu--toggle {
     left: 0;
