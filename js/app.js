@@ -40,9 +40,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const slideWidth = slides[0].getBoundingClientRect().width;
 
     //arrange the slides next to one another
-    slides.forEach((slide, index) => {
-        slide.style.left = slideWidth * index + 'px';
-    })
+    // const setSlidesPosition = (slide, index) => {
+    //     slide.style.left = slideWidth * index + 'px';
+    // }
+
+    // slides.forEach(setSlidesPosition);
 
     // slides[0].style.left = slideWidth * 0 + 'px';
     // slides[1].style.left = slideWidth * 1 + 'px';
@@ -53,6 +55,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //click left
 
     //clisk right
+
+    nextButton.addEventListener('click', e => {
+        const currentSlide = track.querySelector('.current-slide');
+        const nextSlide = currentSlide.nextElementSibling;
+        const amountToMove= nextSlide.style.left;
+        //move to the next slide
+        track.style.transform = 'translateX(-100%)';
+        currentSlide.classList.remove('current-slide');
+        nextSlide.classList.add('current-slide')
+
+        console.log(nextSlide);
+    })
 
     //slide indicators
 
