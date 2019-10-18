@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const dotsNav = document.querySelector('.carousel__nav');
     const dots = Array.from(dotsNav.children);
 
-    const slideWidth = slides[0].getBoundingClientRect().width;
+    // const slideWidth = slides[0].getBoundingClientRect().width;
 
     //arrange the slides next to one another
     // const setSlidesPosition = (slide, index) => {
@@ -61,11 +61,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const nextSlide = currentSlide.nextElementSibling;
         const amountToMove= nextSlide.style.left;
         //move to the next slide
-        track.style.transform = 'translateX(-100%)';
-        currentSlide.classList.remove('current-slide');
-        nextSlide.classList.add('current-slide')
+        track.classList.add('carousel__track--transition');
+        track.style.transform = 'translateX(-33%)';
+        
+        console.log(track);
 
-        console.log(nextSlide);
+        window.addEventListener('transitionend', function () {
+            track.classList.remove('carousel__track--transition');
+            const firstElement = track.querySelector('li:first-child');
+            track.removeChild(firstElement);
+            track.appendChild(firstElement);
+            track.style.transform = 'translateX(0)';
+        }, false);
+
+        
+        // track.style.transform = 'translateX(0)';
+
+        // currentSlide.classList.remove('current-slide');
+        // nextSlide.classList.add('current-slide')
+
+        console.log(track);
     })
 
     //slide indicators
