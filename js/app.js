@@ -41,65 +41,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // const slideWidth = slides[0].getBoundingClientRect().width;
 
-    //arrange the slides next to one another
-    // const setSlidesPosition = (slide, index) => {
-    //     slide.style.left = slideWidth * index + 'px';
-    // }
-
-    // slides.forEach(setSlidesPosition);
-
-    // slides[0].style.left = slideWidth * 0 + 'px';
-    // slides[1].style.left = slideWidth * 1 + 'px';
-    // slides[2].style.left = slideWidth * 2 + 'px';
-
     // console.log(slides);
 
     //click left
+    //change slide handler
 
-    //clisk right
+
+    //click right
+    //change slide handler
+    function changeSlideRight(e) {
+        //remove transition
+        track.classList.remove('carousel__track--transition');
+        //change slides order and current slide marker
+        const currentSlide = track.querySelector('.current-slide');
+        const nextSlide = currentSlide.nextElementSibling;
+        const firstElement = track.querySelector('li:first-child');
+        currentSlide.classList.remove('current-slide');
+        nextSlide.classList.add('current-slide');
+        //change slides order
+        track.removeChild(firstElement);
+        track.appendChild(firstElement);
+        //reset slider
+        track.style.transform = 'translateX(0)';
+        //remove not used listiner
+        track.removeEventListener('transitionend', changeSlideRight, false);
+    }
 
     nextButton.addEventListener('click', e => {
-        
-        // const amountToMove = nextSlide.style.left;
-        //move to the next slide
-        
-        
-
-        // console.log('przed zmiana', track);
-
-        function changeSlide(e) {
-            console.log(e);
-            track.classList.remove('carousel__track--transition');
-            const currentSlide = track.querySelector('.current-slide');
-            const nextSlide = currentSlide.nextElementSibling;
-            // track.classList.remove('carousel__track--transition');
-            const firstElement = track.querySelector('li:first-child');
-            currentSlide.classList.remove('current-slide');
-            nextSlide.classList.add('current-slide');
-            track.removeChild(firstElement);
-            track.appendChild(firstElement);
-            track.style.transform = 'translateX(0)';
-            console.log('po zmianie', track);
-
-            track.removeEventListener('transitionend', changeSlide, false);
-        }
-
-        track.addEventListener('transitionend', changeSlide, false);
-        
+        //add transition for smoth scrolling
         track.classList.add('carousel__track--transition');
-        console.log('track:', track)
+        //listen when transition ends to change slides order
+        track.addEventListener('transitionend', changeSlideRight, false);
+        //slide smoth transition
         track.style.transform = 'translateX(-25%)';
 
-        
-
-
-
-        // track.style.transform = 'translateX(0)';
-
-        // currentSlide.classList.remove('current-slide');
-        // nextSlide.classList.add('current-slide')
-
-        
     })
 
     //slide indicators

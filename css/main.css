@@ -503,7 +503,9 @@ nav ul a:hover {
 
 .carousel__video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .carousel__track-container {
@@ -527,10 +529,10 @@ nav ul a:hover {
 }
 
 .carousel__track--transition {
-  -webkit-transition: -webkit-transform 250ms ease-in;
-  transition: -webkit-transform 250ms ease-in;
-  transition: transform 250ms ease-in;
-  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+  -webkit-transition: -webkit-transform 200ms ease-in;
+  transition: -webkit-transform 200ms ease-in;
+  transition: transform 200ms ease-in;
+  transition: transform 200ms ease-in, -webkit-transform 200ms ease-in;
 }
 
 .carousel__slide {
