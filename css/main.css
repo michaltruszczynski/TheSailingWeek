@@ -493,8 +493,21 @@ nav ul a:hover {
   width: 100%;
 }
 
+.carousel__video-container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.carousel__video {
+  width: 100%;
+  height: auto;
+}
+
 .carousel__track-container {
-  background: lightgreen;
+  background: transparent;
   height: 100%;
   width: 100%;
   position: relative;
@@ -507,7 +520,7 @@ nav ul a:hover {
   position: relative;
   left: -100%;
   height: 100%;
-  width: 300%;
+  width: 400%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -521,10 +534,13 @@ nav ul a:hover {
 }
 
 .carousel__slide {
-  position: relative;
   top: 0;
   bottom: 0;
-  width: calc(100% / 3);
+  width: calc(100% / 4);
+}
+
+.carousel__slide--empty {
+  background: transparent;
 }
 
 .carousel__image {

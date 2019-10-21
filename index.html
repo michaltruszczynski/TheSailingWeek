@@ -44,11 +44,19 @@
     <section class="section section--carousel">
 
         <div class="carousel">
-            <button class="carousel__button carousel__button--left"> < </button>
+            <button class="carousel__button carousel__button--left"> Back </button>
+            <div class="carousel__video-container">
+                <video class="carousel__video" autoplay loop preload muted>
+                    <source src="images/video.mp4" />
+                </video>
+            </div>
             <div class="carousel__track-container">
                 <ul class="carousel__track">
-                    <li class="carousel__slide current-slide">
+                    <li class="carousel__slide">
                         <img class="carousel__image" src="images/slide_1.jpg" alt="">
+                    </li>
+                    <li class="carousel__slide carousel__slide--empty current-slide">
+                        <!-- empty slide - video -->
                     </li>
                     <li class="carousel__slide">
                         <img class="carousel__image" src="images/slide_2.jpg" alt="">
@@ -58,7 +66,7 @@
                     </li>
                 </ul>
             </div>
-            <button class="carousel__button carousel__button--right"> > </button>
+            <button class="carousel__button carousel__button--right"> Forward </button>
             <div class="carousel__nav">
                 <button class="carousel__indicator current-slide"></button>
                 <button class="carousel__indicator"></button>

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
 
     //MENU - bgc on scroll
     const nav = document.querySelector('nav');
@@ -27,9 +27,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     menuBtn.addEventListener('click', menuToggle);
 
     //CAROUSEL
-
     const track = document.querySelector('.carousel__track');
-    const slides = Array.from(track.children);
+
+    console.log('pierwszy', track);
+   
+    // const slides = Array.from(track.children);
 
     const nextButton = document.querySelector('.carousel__button--right');
     const prevButton = document.querySelector('.carousel__button--left');
@@ -50,40 +52,57 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // slides[1].style.left = slideWidth * 1 + 'px';
     // slides[2].style.left = slideWidth * 2 + 'px';
 
-    console.log(slides);
+    // console.log(slides);
 
     //click left
 
     //clisk right
 
     nextButton.addEventListener('click', e => {
-        const currentSlide = track.querySelector('.current-slide');
-        const nextSlide = currentSlide.nextElementSibling;
-        const amountToMove= nextSlide.style.left;
-        //move to the next slide
-        track.classList.add('carousel__track--transition');
-        track.style.transform = 'translateX(-33%)';
         
-        console.log(track);
+        // const amountToMove = nextSlide.style.left;
+        //move to the next slide
+        
+        
 
-        window.addEventListener('transitionend', function () {
+        // console.log('przed zmiana', track);
+
+        function changeSlide(e) {
+            console.log(e);
             track.classList.remove('carousel__track--transition');
+            const currentSlide = track.querySelector('.current-slide');
+            const nextSlide = currentSlide.nextElementSibling;
+            // track.classList.remove('carousel__track--transition');
             const firstElement = track.querySelector('li:first-child');
+            currentSlide.classList.remove('current-slide');
+            nextSlide.classList.add('current-slide');
             track.removeChild(firstElement);
             track.appendChild(firstElement);
             track.style.transform = 'translateX(0)';
-        }, false);
+            console.log('po zmianie', track);
+
+            track.removeEventListener('transitionend', changeSlide, false);
+        }
+
+        track.addEventListener('transitionend', changeSlide, false);
+        
+        track.classList.add('carousel__track--transition');
+        console.log('track:', track)
+        track.style.transform = 'translateX(-25%)';
 
         
+
+
+
         // track.style.transform = 'translateX(0)';
 
         // currentSlide.classList.remove('current-slide');
         // nextSlide.classList.add('current-slide')
 
-        console.log(track);
+        
     })
 
     //slide indicators
 
 
-} );
+});
