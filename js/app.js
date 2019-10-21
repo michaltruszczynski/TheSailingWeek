@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //CAROUSEL
     const track = document.querySelector('.carousel__track');
 
-    console.log('pierwszy', track);
+    // console.log('pierwszy', track);
    
     // const slides = Array.from(track.children);
 
@@ -41,15 +41,51 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // const slideWidth = slides[0].getBoundingClientRect().width;
 
-    // console.log(slides);
-
     //click left
-    //change slide handler
+    //slide in from left
+    function slideLeft() {
+        //add transition for smoth scrolling
+        track.classList.add('carousel__track--transition');
+        //listen when transition ends to change slides order
+        track.addEventListener('transitionend', changeSlideLeft, false);
+        //slide smoth transition
+        track.style.transform = 'translateX(25%)';
+    }
 
+    //change slide handler
+    function changeSlideLeft(e) {
+        //remove transition
+        track.classList.remove('carousel__track--transition');
+        //change slides order and current slide marker
+        const currentSlide = track.querySelector('.current-slide');
+        const nextSlide = currentSlide.previousElementSibling;
+        console.log('next Slide:', nextSlide);
+        const lastElement = track.querySelector('li:last-child');
+        currentSlide.classList.remove('current-slide');
+        nextSlide.classList.add('current-slide');
+        //change slides order
+        track.removeChild(lastElement);
+        track.prepend(lastElement);
+        //reset slider
+        track.style.transform = 'translateX(0)';
+        //remove not used listiner
+        track.removeEventListener('transitionend', changeSlideLeft, false);
+    }
+
+    prevButton.addEventListener('click', slideLeft);
 
     //click right
-    //change slide handler
-    function changeSlideRight(e) {
+    //slide in from right
+    function slideRight() {
+        //add transition for smoth scrolling
+        track.classList.add('carousel__track--transition');
+        //listen when transition ends to change slides order
+        track.addEventListener('transitionend', changeSlideRight, false);
+        //slide smoth transition
+        track.style.transform = 'translateX(-25%)';
+    }
+    //change slide order handler
+    function changeSlideRight() {
         //remove transition
         track.classList.remove('carousel__track--transition');
         //change slides order and current slide marker
@@ -67,15 +103,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         track.removeEventListener('transitionend', changeSlideRight, false);
     }
 
-    nextButton.addEventListener('click', e => {
-        //add transition for smoth scrolling
-        track.classList.add('carousel__track--transition');
-        //listen when transition ends to change slides order
-        track.addEventListener('transitionend', changeSlideRight, false);
-        //slide smoth transition
-        track.style.transform = 'translateX(-25%)';
+    nextButton.addEventListener('click', slideRight)
 
-    })
+
+    // nextButton.addEventListener('click', e => {
+    //     //add transition for smoth scrolling
+    //     track.classList.add('carousel__track--transition');
+    //     //listen when transition ends to change slides order
+    //     track.addEventListener('transitionend', changeSlideRight, false);
+    //     //slide smoth transition
+    //     track.style.transform = 'translateX(-25%)';
+
+    // })
 
     //slide indicators
 
