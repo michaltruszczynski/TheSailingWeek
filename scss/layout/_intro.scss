@@ -20,11 +20,11 @@
 }
 
 .carousel__track-container {
-    // background: lightgreen;
     background: transparent;
     height: 100%;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .carousel__track {
@@ -63,7 +63,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    // background: transparent;
     border: 0;
     cursor: pointer;
     z-index: 2;

@@ -83,10 +83,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         track.addEventListener('transitionend', changeSlideRight, false);
         //slide smoth transition
         track.style.transform = 'translateX(-25%)';
+        console.log('click1');
     }
     //change slide order handler
     function changeSlideRight() {
         //remove transition
+        console.log('click2');
         track.classList.remove('carousel__track--transition');
         //change slides order and current slide marker
         const currentSlide = track.querySelector('.current-slide');
@@ -105,18 +107,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     nextButton.addEventListener('click', slideRight)
 
-
-    // nextButton.addEventListener('click', e => {
-    //     //add transition for smoth scrolling
-    //     track.classList.add('carousel__track--transition');
-    //     //listen when transition ends to change slides order
-    //     track.addEventListener('transitionend', changeSlideRight, false);
-    //     //slide smoth transition
-    //     track.style.transform = 'translateX(-25%)';
-
-    // })
-
     //slide indicators
 
+
+    //autoSlider
 
 });
