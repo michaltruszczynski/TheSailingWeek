@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         track.removeEventListener('transitionend', changeSlideRight, false);
     }
 
-    nextButton.addEventListener('click', slideRight)
+    nextButton.addEventListener('click', slideRight);
 
     //slide indicators
 
