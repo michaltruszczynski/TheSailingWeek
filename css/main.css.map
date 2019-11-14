@@ -15,6 +15,7 @@
         "../scss/layout/_all.scss",
         "../scss/layout/_general.scss",
         "../scss/layout/_nav.scss",
+        "../scss/layout/_carousel.scss",
         "../scss/layout/_intro.scss"
     ],
     "names": [],
