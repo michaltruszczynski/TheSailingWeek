@@ -1,0 +1,8 @@
+.section--intro {
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+
+    .section__header {
+        position: absolute;
+    }
+}

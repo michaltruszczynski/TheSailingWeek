@@ -596,4 +596,14 @@ nav ul a:hover {
 .carousel__indicator.current--slide {
   background: rgba(0, 0, 0, 0.75);
 }
+
+.section--intro {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.section--intro .section__header {
+  position: absolute;
+}
 /*# sourceMappingURL=main.css.map */
