@@ -601,9 +601,34 @@ nav ul a:hover {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   position: relative;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 
-.section--intro .section__header {
+.section__header {
   position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.intro-card {
+  padding: 2rem 2rem;
+  font-size: 1rem;
+}
+
+.intro-card--photo {
+  background: url("../../images/section_intro_photo_1.jpg");
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
 }
 /*# sourceMappingURL=main.css.map */
