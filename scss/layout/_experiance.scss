@@ -1,0 +1,16 @@
+.section--experiance {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.experiance-card {
+    display: grid;
+    grid-template-columns: 100px minmax(auto, max-content);
+}
+
+.experiance-card__img {
+    width: 100px;
+    // height: 100px;
+}

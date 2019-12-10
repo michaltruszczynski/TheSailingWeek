@@ -640,4 +640,26 @@ nav ul a:hover {
   width: 100%;
   height: auto;
 }
+
+.section--experiance {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.experiance-card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px minmax(auto, max-content);
+      grid-template-columns: 100px minmax(auto, -webkit-max-content);
+      grid-template-columns: 100px minmax(auto, max-content);
+}
+
+.experiance-card__img {
+  width: 100px;
+}
 /*# sourceMappingURL=main.css.map */
