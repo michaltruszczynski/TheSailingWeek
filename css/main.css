@@ -642,24 +642,22 @@ nav ul a:hover {
 }
 
 .section--experiance {
-  width: 80%;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem 2rem;
+  background: url("../../images/bgphoto.jpg") no-repeat;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .experiance-card {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 100px minmax(auto, max-content);
-      grid-template-columns: 100px minmax(auto, -webkit-max-content);
-      grid-template-columns: 100px minmax(auto, max-content);
+  text-align: center;
 }
 
 .experiance-card__img {
-  width: 100px;
+  width: 50px;
 }
 /*# sourceMappingURL=main.css.map */

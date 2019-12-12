@@ -1,16 +1,23 @@
 .section--experiance {
-    width: 80%;
+    // max-width: 1024px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem 2rem;
+    background: url('../../images/bgphoto.jpg') no-repeat;
+    object-fit: fill;
+    // object-position: center;
 }
 
 .experiance-card {
-    display: grid;
-    grid-template-columns: 100px minmax(auto, max-content);
+    text-align: center;
+    // display: grid;
+    // grid-template-columns: auto minmax(auto, max-content);
+    // grid-template-columns: repeat(1, 1fr);
+    
 }
 
 .experiance-card__img {
-    width: 100px;
+    width: 50px;
     // height: 100px;
 }
