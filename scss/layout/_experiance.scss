@@ -1,23 +1,29 @@
 .section--experiance {
-    // max-width: 1024px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem 2rem;
-    background: url('../../images/bgphoto.jpg') no-repeat;
-    object-fit: fill;
-    // object-position: center;
+    grid-template-rows: 1fr 1fr;
+    background-color: $clr-blue-light-bg;
 }
 
+.experiance__container {
+    margin: 5rem auto 0 auto;
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+
+.experiance-list__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+
+}
 .experiance-card {
     text-align: center;
-    // display: grid;
-    // grid-template-columns: auto minmax(auto, max-content);
-    // grid-template-columns: repeat(1, 1fr);
-    
+
 }
 
-.experiance-card__img {
+.experiance-card__icon {
     width: 50px;
-    // height: 100px;
 }
