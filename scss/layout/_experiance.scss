@@ -26,7 +26,7 @@
     position: relative;
     border-radius: 10%;
     overflow: hidden;
-    box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 32px 40px -2px rgba(10, 22, 70, 0.12);;
+    box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);;
 }
 
 .experiance-card__img-container:after {
@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
     position: absolute;
 }
 
@@ -55,11 +55,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: block;
-    opacity: 0.72;
+    //display: none;
+    opacity: 0.39;
+    // color: aliceblue;
+    // font-size: 33px;
+    // font-weight: 600;
+    // letter-spacing: 1.5px;
+    // line-height: 35px;
+    // margin: 0;
 }
 
 .experiance-heading {
     margin: 0.75em 0 0.25em 0;
 }
 
+.experiance-description {
+    text-align: justify;
+    font-weight: 300;
+}

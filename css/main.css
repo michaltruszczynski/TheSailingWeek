@@ -353,6 +353,7 @@ body {
 
 h1,
 h2,
+h3,
 figure {
   margin: 0;
 }
@@ -616,7 +617,8 @@ nav ul a:hover {
   font-size: 1.6rem;
   text-align: center;
   max-width: 48rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 1.0px;
 }
 
 .intro__text {
@@ -657,8 +659,8 @@ nav ul a:hover {
   position: relative;
   border-radius: 10%;
   overflow: hidden;
-  -webkit-box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
-          box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+  -webkit-box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+          box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
 }
 
 .experiance-card__img-container:after {
@@ -667,8 +669,8 @@ nav ul a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   position: absolute;
 }
 
@@ -691,12 +693,16 @@ nav ul a:hover {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  display: block;
-  opacity: 0.72;
+  opacity: 0.39;
 }
 
 .experiance-heading {
   margin: 0.75em 0 0.25em 0;
+}
+
+.experiance-description {
+  text-align: justify;
+  font-weight: 300;
 }
 
 .section--destinations {
