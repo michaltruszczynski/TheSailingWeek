@@ -3,11 +3,12 @@
     margin: 0 auto;
 
 }
-.destinations-container {
 
+.destinations-list__container {
+    display: flex;
 }
 
-.destinations__list {
 
+.img__config {
+    width: 250px;
 }
-
