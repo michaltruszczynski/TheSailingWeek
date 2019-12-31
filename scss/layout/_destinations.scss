@@ -10,5 +10,20 @@
 
 
 .img__config {
-    width: 250px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0;
+    position: relative;
+}
+.img--size {
+    height: 288px;
+    width: 100%;
+}
+
+.img__title {
+
+}
+
+.img__title--bottom {
+    
 }
