@@ -717,17 +717,28 @@ nav ul a:hover {
   display: flex;
 }
 
+.img__container {
+  position: relative;
+}
+
 .img__config {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  margin-bottom: 0;
   position: relative;
 }
 
 .img--size {
   height: 288px;
   width: 100%;
+}
+
+.img__text-component {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
