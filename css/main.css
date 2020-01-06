@@ -717,16 +717,14 @@ nav ul a:hover {
   display: flex;
 }
 
-.img__container {
-  position: relative;
-}
-
 .img__config {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  margin-bottom: 0;
   position: relative;
+  display: block;
 }
 
 .img--size {
@@ -736,9 +734,28 @@ nav ul a:hover {
 
 .img__text-component {
   position: absolute;
-  height: 100%;
-  width: 100%;
   top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.img__title {
+  text-align: center;
+}
+
+.img__text {
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

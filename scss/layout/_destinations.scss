@@ -8,14 +8,15 @@
 }
 
 .img__container {
-    position: relative;
+    // position: relative;
 }
 
 .img__config {
     object-fit: cover;
     object-position: center;
-    // margin-bottom: 0;
+    margin-bottom: 0;
     position: relative;
+    display: block;
 }
 .img--size {
     height: 288px;
@@ -24,14 +25,25 @@
 
 .img__text-component {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    // height: 100%;
+    // width: 100%;
     top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     color: white;
-    // margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .img__title {
+    text-align: center;
+}
+
+.img__text {
+    text-align: center;
+
 }
 
 .img__title--bottom {
