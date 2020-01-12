@@ -368,11 +368,6 @@ div {
           box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 nav {
   position: fixed;
   z-index: 3;
@@ -595,6 +590,8 @@ nav ul a:hover {
 }
 
 .section--intro {
+  max-width: 1280px;
+  margin: 0 auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -610,7 +607,7 @@ nav ul a:hover {
 }
 
 .intro__container {
-  margin: 5em auto 0 auto;
+  margin: 5rem 1.25rem 0 1.25rem;
 }
 
 .section__title {
@@ -623,14 +620,13 @@ nav ul a:hover {
 
 .intro__text {
   font-size: 1rem;
-  max-width: 38rem;
+  max-width: 44rem;
   text-align: center;
 }
 
 .section--experiance {
   max-width: 1280px;
   margin: 0 auto;
-  background-color: #f3f6f5;
 }
 
 .experiance__container {
@@ -655,6 +651,10 @@ nav ul a:hover {
   text-align: center;
 }
 
+.experiance-card__img-element {
+  position: relative;
+}
+
 .experiance-card__img-container {
   position: relative;
   border-radius: 10%;
@@ -665,35 +665,36 @@ nav ul a:hover {
 
 .experiance-card__img-container:after {
   content: '';
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-  position: absolute;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 
 .experiance-card__img {
   height: 240px;
   width: 100%;
+  margin-bottom: 0;
+  display: block;
+  position: relative;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  margin-bottom: 0;
-  display: block;
 }
 
-.experiance-card__icon {
+.experiance-card__text {
+  color: #F1F0EE;
+  font-weight: 600;
+  font-size: 2rem;
   position: absolute;
-  z-index: 1;
-  height: 50px;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  opacity: 0.39;
 }
 
 .experiance-heading {
@@ -704,6 +705,8 @@ nav ul a:hover {
 .experiance-description {
   text-align: justify;
   font-weight: 300;
+  font-size: 1rem;
+  margin-top: 1.3em;
 }
 
 .section--destinations {
@@ -711,10 +714,23 @@ nav ul a:hover {
   margin: 0 auto;
 }
 
+.desinations__container {
+  overflow: hidden;
+}
+
 .destinations-list__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  scroll-behavior: unset;
+  position: relative;
+}
+
+.card {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .img__config {
@@ -729,7 +745,6 @@ nav ul a:hover {
 
 .img--size {
   height: 288px;
-  width: 100%;
 }
 
 .img__text-component {

@@ -3,8 +3,32 @@
     margin: 0 auto;
 }
 
+.desinations__container {
+    overflow: hidden;
+}
+
 .destinations-list__container {
     display: flex;
+    flex-wrap: nowrap;
+    // overflow-x: auto;
+    scroll-behavior: unset;
+    position: relative;
+    // width: 100vw;
+
+    // left: 50%;
+    // right: 50%;
+    // margin-left: -50vw;
+    // margin-right: -50vw;
+
+    // &::-webkit-scrollbar {
+    //     display: none;
+    //   }
+}
+
+.card {
+    flex-shrink: 0;
+    // flex: 0 0 auto;
+    // display: inline-block;
 }
 
 .img__container {
@@ -20,7 +44,8 @@
 }
 .img--size {
     height: 288px;
-    width: 100%;
+    // width: 250px;
+    // width: auto;
 }
 
 .img__text-component {
@@ -43,7 +68,6 @@
 
 .img__text {
     text-align: center;
-
 }
 
 .img__title--bottom {

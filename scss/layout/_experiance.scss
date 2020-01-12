@@ -1,7 +1,6 @@
 .section--experiance {
     max-width: 1280px;
     margin: 0 auto;
-    background-color: $clr-blue-light-bg;
 }
 
 .experiance__container {
@@ -15,11 +14,16 @@
 .experiance-list__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    // grid-template-columns: repeat(auto-fit, 1fr);
     grid-gap: 2em;
 }
 
 .experiance-card {
     text-align: center;
+}
+
+.experiance-card__img-element {
+    position: relative;
 }
 
 .experiance-card__img-container {
@@ -31,38 +35,42 @@
 
 .experiance-card__img-container:after {
     content: '';
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
-    position: absolute;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
 }
 
 .experiance-card__img {
     height: 240px;
     width: 100%;
-    object-fit: cover;
-    object-position: center;
     margin-bottom: 0;
     display: block;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
 }
 
-.experiance-card__icon {
+// .experiance-card__icon {
+//     position: absolute;
+//     z-index: 1;
+//     height: 50px;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     opacity: 0.39;
+// }
+
+.experiance-card__text {
+    color: $clr-white-custom;
+    font-weight: 600;
+    font-size: 2rem;
     position: absolute;
-    z-index: 1;
-    height: 50px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    //display: none;
-    opacity: 0.39;
-    // color: aliceblue;
-    // font-size: 33px;
-    // font-weight: 600;
-    // letter-spacing: 1.5px;
-    // line-height: 35px;
-    // margin: 0;
 }
 
 .experiance-heading {
@@ -74,5 +82,6 @@
 .experiance-description {
     text-align: justify;
     font-weight: 300;
-    // font-size: 15px;
+    font-size: 1rem;
+    margin-top: 1.3em;
 }

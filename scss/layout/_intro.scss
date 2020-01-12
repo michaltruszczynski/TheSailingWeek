@@ -1,18 +1,16 @@
 .section--intro {
+    max-width: 1280px;
+    margin: 0 auto;
     display: grid;
-    // grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    // position: relative;
-    // height: 100vh;
     justify-content: center;
     align-items: center;
     justify-items: center;
     background-color: $clr-blue-light-bg;
 }
 
-
 .intro__container {
-    margin: 5em auto 0 auto;
+    margin: 5rem 1.25rem 0 1.25rem;
 }
 
 .section__title {
@@ -29,7 +27,7 @@
 
 .intro__text {
     font-size: 1rem;
-    max-width: 38rem;
+    max-width: 44rem;
     text-align: center;
 }
 

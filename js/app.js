@@ -112,4 +112,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //autoSlider
 
+    // var docWidth = document.documentElement.offsetWidth;
+
+    // [].forEach.call(
+    //   document.querySelectorAll('*'),
+    //   function(el) {
+    //     if (el.offsetWidth > docWidth) {
+    //       console.dir(el);
+    //       console.log(docWidth)
+    //     }
+    //   }
+    // );
+
 });
