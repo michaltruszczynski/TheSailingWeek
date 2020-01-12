@@ -647,15 +647,15 @@ nav ul a:hover {
   grid-gap: 2em;
 }
 
-.experiance-card {
+.card {
   text-align: center;
 }
 
-.experiance-card__img-element {
+.card__img-container {
   position: relative;
 }
 
-.experiance-card__img-container {
+.card__img-overlay {
   position: relative;
   border-radius: 10%;
   overflow: hidden;
@@ -663,7 +663,7 @@ nav ul a:hover {
           box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
 }
 
-.experiance-card__img-container:after {
+.card__img-overlay:after {
   content: '';
   position: absolute;
   top: 0;
@@ -674,7 +674,7 @@ nav ul a:hover {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 
-.experiance-card__img {
+.card__img {
   height: 240px;
   width: 100%;
   margin-bottom: 0;
@@ -686,7 +686,7 @@ nav ul a:hover {
      object-position: center;
 }
 
-.experiance-card__text {
+.card__img-heading {
   color: #F1F0EE;
   font-weight: 600;
   font-size: 2rem;
@@ -702,7 +702,7 @@ nav ul a:hover {
   font-weight: 500;
 }
 
-.experiance-description {
+.card-description {
   text-align: justify;
   font-weight: 300;
   font-size: 1rem;
@@ -712,6 +712,7 @@ nav ul a:hover {
 .section--destinations {
   max-width: 1280px;
   margin: 0 auto;
+  margin-top: 5.25rem;
 }
 
 .desinations__container {
