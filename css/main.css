@@ -664,7 +664,7 @@ nav ul a:hover {
 }
 
 .card__img-overlay:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -675,8 +675,6 @@ nav ul a:hover {
 }
 
 .card__img {
-  height: 240px;
-  width: 100%;
   margin-bottom: 0;
   display: block;
   position: relative;
@@ -684,6 +682,11 @@ nav ul a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.card__img--experiance {
+  height: 240px;
+  width: 100%;
 }
 
 .card__img-heading {
@@ -712,11 +715,20 @@ nav ul a:hover {
 .section--destinations {
   max-width: 1280px;
   margin: 0 auto;
-  margin-top: 5.25rem;
 }
 
 .desinations__container {
-  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  justify-items: center;
+  grid-gap: 3rem;
+  margin: 5rem 1.25rem 0 1.25rem;
+}
+
+.card-slider {
+  position: relative;
 }
 
 .destinations-list__container {
@@ -725,53 +737,30 @@ nav ul a:hover {
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  scroll-behavior: unset;
+  padding: 1.25rem;
   position: relative;
-}
-
-.card {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-.img__config {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  margin-bottom: 0;
-  position: relative;
-  display: block;
-}
-
-.img--size {
-  height: 288px;
-}
-
-.img__text-component {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   left: 0;
-  right: 0;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
-.img__title {
-  text-align: center;
+.card--destination {
+  margin-right: 12px;
 }
 
-.img__text {
-  text-align: center;
+.card__img--destination {
+  height: 288px;
+  width: 280px;
+}
+
+.card__img-heading--desination {
+  font-size: 19.2px;
+  font-weight: 600;
+}
+
+.img__img-text {
+  font-size: 13px;
+  font-weight: 300;
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */

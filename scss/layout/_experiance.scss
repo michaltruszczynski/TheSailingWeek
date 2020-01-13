@@ -30,22 +30,20 @@
     position: relative;
     border-radius: 10%;
     overflow: hidden;
-    box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);;
+    box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
 }
 
 .card__img-overlay:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 
 .card__img {
-    height: 240px;
-    width: 100%;
     margin-bottom: 0;
     display: block;
     position: relative;
@@ -53,15 +51,10 @@
     object-position: center;
 }
 
-// .experiance-card__icon {
-//     position: absolute;
-//     z-index: 1;
-//     height: 50px;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     opacity: 0.39;
-// }
+.card__img--experiance {
+    height: 240px;
+    width: 100%;
+}
 
 .card__img-heading {
     color: $clr-white-custom;
@@ -76,7 +69,6 @@
 .experiance-heading {
     margin: 0.75em 0 0.25em 0;
     font-weight: 500;
-    // font-size: 15px;
 }
 
 .card-description {
@@ -85,3 +77,15 @@
     font-size: 1rem;
     margin-top: 1.3em;
 }
+
+// old layout ideas
+
+// .experiance-card__icon {
+//     position: absolute;
+//     z-index: 1;
+//     height: 50px;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     opacity: 0.39;
+// }
