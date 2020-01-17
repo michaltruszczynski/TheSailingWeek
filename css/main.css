@@ -626,17 +626,18 @@ nav ul a:hover {
 
 .section--experiance {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 
 .experiance__container {
+  padding: 20px 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
   justify-items: center;
   grid-gap: 3rem;
-  margin: 5rem 1.25rem 0 1.25rem;
+  margin: 0 1.25rem;
 }
 
 .experiance-list__container {
@@ -645,6 +646,15 @@ nav ul a:hover {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 2em;
+}
+
+@media (max-width: 1024px) {
+  .experiance-list__container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
 }
 
 .card {
@@ -682,6 +692,7 @@ nav ul a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  border-radius: 10%;
 }
 
 .card__img--experiance {
@@ -705,7 +716,7 @@ nav ul a:hover {
   font-weight: 500;
 }
 
-.card-description {
+.card__description {
   text-align: justify;
   font-weight: 300;
   font-size: 1rem;
@@ -713,8 +724,12 @@ nav ul a:hover {
 }
 
 .section--destinations {
-  max-width: 1280px;
-  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(20px, 1fr) minmax(1px, 1280px) minmax(20px, 1fr);
+      grid-template-columns: minmax(20px, 1fr) minmax(1px, 1280px) minmax(20px, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
 }
 
 .desinations__container {
@@ -727,21 +742,23 @@ nav ul a:hover {
   margin: 5rem 1.25rem 0 1.25rem;
 }
 
-.card-slider {
-  position: relative;
+.section__title--destinations {
+  grid-column: 2 / -2;
+  margin: 0 auto;
 }
 
 .destinations-list__container {
+  margin: 0 auto;
+  padding: 60px 0;
+  grid-column: 1 / -1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  padding: 1.25rem;
-  position: relative;
+  overflow-x: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  left: 0;
 }
 
 .card--destination {

@@ -1,14 +1,15 @@
 .section--experiance {
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 5rem auto;
 }
 
 .experiance__container {
+    padding: 20px 0;
     display: grid;
     grid-template-rows: auto;
     justify-items: center;
     grid-gap: 3rem;
-    margin: 5rem 1.25rem 0 1.25rem;
+    margin: 0 1.25rem;
 }
 
 .experiance-list__container {
@@ -16,6 +17,12 @@
     grid-template-columns: repeat(4, 1fr);
     // grid-template-columns: repeat(auto-fit, 1fr);
     grid-gap: 2em;
+}
+@media(max-width: 1024px) {
+    .experiance-list__container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
 }
 
 .card {
@@ -49,6 +56,7 @@
     position: relative;
     object-fit: cover;
     object-position: center;
+    border-radius: 10%;
 }
 
 .card__img--experiance {
@@ -71,7 +79,7 @@
     font-weight: 500;
 }
 
-.card-description {
+.card__description {
     text-align: justify;
     font-weight: 300;
     font-size: 1rem;
