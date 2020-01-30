@@ -1,0 +1,20 @@
+.section--opinions {
+    max-width: 1280px;
+    margin: 5rem auto;
+}
+
+.section__title--opinions {
+    margin-bottom: 0.45rem;
+}
+
+.opinion__list {
+    display: flex;
+}
+
+.opinion__title {
+    font-weight: 600;
+    font-size: 1rem;
+}
+.opinion__text {
+    font-size: 0.8rem
+}

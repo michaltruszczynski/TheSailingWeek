@@ -780,4 +780,28 @@ nav ul a:hover {
   font-weight: 300;
   display: block;
 }
+
+.section--opinions {
+  max-width: 1280px;
+  margin: 5rem auto;
+}
+
+.section__title--opinions {
+  margin-bottom: 0.45rem;
+}
+
+.opinion__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.opinion__title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.opinion__text {
+  font-size: 0.8rem;
+}
 /*# sourceMappingURL=main.css.map */
