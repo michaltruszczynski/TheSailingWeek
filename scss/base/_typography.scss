@@ -19,6 +19,6 @@ div {
     box-sizing: border-box;
 }
 
-// p {
-//   margin-bottom: 1em;
-// }
+*::before, *::after {
+    box-sizing: border-box;
+}

@@ -181,3 +181,459 @@
         <p class="news__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus id laborum illum?
             Dolor maiores dolores officiis placeat ipsum praesentium ratione.</p>
     </article>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap&subset=latin-ext"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c4203a7dbd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/icons/TSW_white.png" alt="logo">
+                <p>The Sailing Week</p>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">Jak to działa?</a>
+                </li>
+                <li>
+                    <a href="#">Kierunki</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+                <li>
+                    <a href="#">Zaloguj się</a>
+                </li>
+            </ul>
+            <div class="menu__toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section--carousel">
+
+        <div class="carousel">
+            <button class="carousel__button carousel__button--left"> Back </button>
+            <div class="carousel__video-container">
+                <video class="carousel__video" autoplay loop preload muted>
+                    <source src="images/video.mp4" />
+                </video>
+            </div>
+            <div class="carousel__track-container">
+                <ul class="carousel__track">
+                    <li class="carousel__slide">
+                        <img class="carousel__image" src="images/slide_1.jpg" alt="">
+                    </li>
+                    <li class="carousel__slide carousel__slide--empty current-slide">
+                        <!-- empty slide - video -->
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__image" src="images/slide_2.jpg" alt="">
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__image" src="images/slide_3.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button carousel__button--right"> Forward </button>
+            <div class="carousel__nav">
+                <button class="carousel__indicator current-slide"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section section--into">
+
+        <div class="section__container section__container--intro">
+            <h2 class="section__title">
+                Rozpocznij najlepszy tydzień wakacji.
+            </h2>
+            <p class="section__text">
+                Rejsy morskie z The Sailing Week to niezapomniane wakacje, to tydzień zabawy we
+                flocie kilku jednostek, tydzień poznawania nowych, entuzjastycznych ludzi. To tydzień pięknych jachtów i
+                niesamowitych chwil w fascynujących sceneriach. Tydzień odkrywania nowych miejsc w najciekawszych
+                rejonach całego świata. Tydzień zwiedzania, niepowtarzalnych wrażeń i doznań, pięknej pogody i błękitnej
+                wody -
+                przeżyj najlepszy tydzień swojego życia!
+            </p>
+        </div>
+
+    </section>
+
+    <section class="section section--experiance">
+
+        <div class="section__container section__container--experiance">
+            <h2 class="section__title">
+                Spędź z nami najbliższe wakacje
+            </h2>
+
+            <!-- <div class="card">
+                <div class="photo">
+                    <div class="photo__overlay">
+                        <img src="" alt="" class="photo__img">
+                    </div>
+                    <div class="photo__info">
+                        <h2 class="photo__title"></h2>
+                        <p class="photo__text"></p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <h2 class="text-heading">
+        
+                    </h2>
+                    <p class="text-content text-content--margin-top text-content--margin-bottom">
+        
+                    </p>
+                    <p class="text__author"></p>
+                    <button></button>
+                </div>
+            </div> -->
+
+            <div class="experiance-list">
+
+                <div class="card">
+                    <div class="photo">
+                        <div class="photo__overlay">
+                            <img src="images/adventure.jpg" alt="" class="photo__img photo__img--experiance">
+                        </div>
+                        <div class="photo__info">
+                            <h2 class="photo__title photo__title-center">
+                                Przygoda
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="text-content text-content--margin-top">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Recusandae itaque enim nam earum quibusdam tempore sapiente vero error!
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="photo">
+                        <div class="photo__overlay">
+                            <img src="images/culture.jpg" alt="" class="photo__img photo__img--experiance">
+                        </div>
+                        <div class="photo__info">
+                            <h2 class="photo__title photo__title-center">
+                                Zabytki
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="text-content text-content--margin-top">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                        ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+
+                <!-- <div class="card">
+                    <div class="card__img-container">
+                        <div class="card__img-overlay">
+                            <img src="images/adventure.jpg" class="card__img card__img--experiance" alt="sailing">
+                        </div>
+                        <h2 class="card__img-heading card__img-heading--experiance">Przygoda</h2>
+                    </div>
+                    <div>
+                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Recusandae itaque enim nam earum quibusdam tempore sapiente vero error!</p>
+                    </div>
+                </div> -->
+
+                <div class="card">
+                    <div class="card__img-container">
+                        <div class="card__img-overlay">
+                            <img src="images/culture.jpg" class="card__img card__img--experiance" alt="monuments">
+                        </div>
+                        <h2 class="card__img-heading card__img-heading--experiance">Zabytki</h2>
+                    </div>
+                    <div>
+                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__img-container">
+                        <div class="card__img-overlay">
+                            <img src="images/beach.jpg" class="card__img card__img--experiance" alt="beach">
+                        </div>
+                        <h2 class="card__img-heading card__img-heading--experiance">Plaże</h2>
+                    </div>
+                    <div>
+                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__img-container">
+                        <div class="card__img-overlay">
+                            <img src="images/party.jpg" class="card__img card__img--experiance" alt="party">
+                        </div>
+                        <h2 class="card__img-heading card__img-heading--experiance">Zabawa</h2>
+                    </div>
+                    <div>
+                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elitf.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section section--destinations">
+
+
+        <h2 class="section__title section__title--destinations">
+            Kierunki
+        </h2>
+
+        <div class="destinations-list__container">
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/69028899_10157530551624516_2545845670045024256_o.jpg"
+                            class="card__img card__img--destination" alt="croatia">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Chorwacja, Trasa Południowa
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                    <!-- <div class="img__text-component">
+                                <h3 class="img__title img__title--bottom">Chorwacja, Trasa Południowa</h3>
+                                <p class="img__text img__text--bottom">od 1 199 PLN/os</p>
+                            </div> -->
+
+                </div>
+            </div>
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/36270194_10156503177254516_459983081776873472_o.jpg" alt=""
+                            class="card__img card__img--destination">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Grecja, Morze Jońskie
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/67878086_10157508371524516_8924657890346663936_o.jpg" alt=""
+                            class="card__img card__img--destination">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Czarnogóra, Perła Adriatyku
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/41952368_10156703758029516_2091616598904274944_o.jpg" alt=""
+                            class="card__img card__img--destination">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Karaiby, Brytyjskie Wyspy Dziewicze
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/42570312_10156723067679516_1911101799218020352_o.jpg" alt=""
+                            class="card__img card__img--destination">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Chorwacja, Trasa Północna
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="card card--destination">
+                <div class="card__img-container">
+                    <div class="card__img-overlay">
+                        <img src="images/destinations_croatia_3.jpg" alt="" class="card__img card__img--destination">
+                    </div>
+                    <h2 class="card__img-heading card__img-heading--desination">
+                        Chorwacja, Trasa Południowa
+                        <span class="img__img-text">od 1 199 PLN/os</span>
+                    </h2>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- <div class="card">
+            <div class="img__container">
+                <img src="" alt="" class="img img--size">
+                <h3 class="img__title img__title--center img__title--bottom"></h3>
+                <h4 class="img__subtitle"></h4>
+                <p class="img__text"></p>
+            </div>
+            <div class="card__info-section">
+                <h3 class="card__heading"></h3>
+                <p class="card__description"></p>
+            </div>
+        </div> -->
+
+    </section>
+
+    <section class="section section--opinions">
+
+        <div class="opinion__container">
+            <h2 class="section__title section__title--opinions">
+                Poznaj opinie naszych klientów
+            </h2>
+            <p class="intro__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque praesentium officiis
+                doloribus quisquam
+                obcaecati earum sapiente, et quo.</p>
+            <div class="opinion__list-conatiner">
+                <div class="opinion__list">
+
+                    <div class="opinion">
+                        <div class="opinion__heading">
+                            <div class="opinion__data">
+                                <div class="opinion__rating">☆☆☆</div>
+                                <div class="opinion__date">01/09/2019</div>
+                            </div>
+                            <h3 class="opinion__title">Wspaniała przygoda. Tydzień niezapomnianych wrażeń</h3>
+                        </div>
+                        <div class="opinion__text">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dicta officia dolor
+                                voluptate mollitia.
+                            </p>
+                            <p class="opinion__author">John Smith</p>
+                        </div>
+                    </div>
+
+                    <div class="opinion">
+                        <div class="opinion__heading">
+                            <div class="opinion__data">
+                                <div class="opinion__rating">☆☆☆</div>
+                                <div class="opinion__date">01/09/2019</div>
+                            </div>
+                            <h3 class="opinion__title">Wspaniała przygoda. Tydzień niezapomnianych wrażeń</h3>
+                        </div>
+                        <div class="opinion__text">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dicta officia dolor
+                                voluptate mollitia.
+                            </p>
+                            <p class="opinion__author">John Smith</p>
+                        </div>
+                    </div>
+
+                    <div class="opinion">
+                        <div class="opinion__heading">
+                            <div class="opinion__data">
+                                <div class="opinion__rating">☆☆☆</div>
+                                <div class="opinion__date">01/09/2019</div>
+                            </div>
+                            <h3 class="opinion__title">Wspaniała przygoda. Tydzień niezapomnianych wrażeń</h3>
+                        </div>
+                        <div class="opinion__text">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dicta officia dolor
+                                voluptate mollitia.
+                            </p>
+                            <p class="opinion__author">John Smith</p>
+                        </div>
+                    </div>
+
+                    <div class="opinion">
+                        <div class="opinion__heading">
+                            <div class="opinion__data">
+                                <div class="opinion__rating">☆☆☆</div>
+                                <div class="opinion__date">01/09/2019</div>
+                            </div>
+                        </div>
+                        <div class="opinion__text">
+                            <h3 class="opinion__title">Wspaniała przygoda. Tydzień niezapomnianych wrażeń</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dicta officia dolor
+                                voluptate mollitia.
+                            </p>
+                            <p class="opinion__author">John Smith</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="photo">
+                <div class="photo__overlay">
+                    <img src="" alt="" class="photo__img">
+                </div>
+                <div class="photo__info">
+                    <h2 class="photo__title"></h2>
+                    <p class="photo__text"></p>
+                </div>
+            </div>
+            <div class="text">
+                <h2 class="text__heading">
+
+                </h2>
+                <p class="text__content">
+
+                </p>
+                <p class="text__author"></p>
+                <button></button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div>
+            <div>
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

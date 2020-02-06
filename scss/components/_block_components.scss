@@ -1,0 +1,114 @@
+
+// Using BEM methodology. List of block elements used
+// Table of content:
+// 1. Main section.
+// 2. Section
+// 3. Card.
+// 4. Photo.
+// 5. Text.
+// 6.
+// 7.
+// 8.
+// 9.
+// 10.
+
+
+
+// 1. Main Section -> block
+
+.main-section {
+    overflow: hidden;
+}
+
+
+// 2. Section -> block
+
+.section {
+    max-width: 1280px;
+    margin: 5rem auto;
+    background-color: $clr-blue-light-bg;
+}
+
+.section__container {
+    margin: 0 1.25rem;
+    padding: 1.25rem 0;
+}
+
+.section__title {
+    max-width: 48rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.section__text {
+    max-width: 44rem;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 1rem auto 0;
+}
+
+// 3. Card -> block
+
+.card {
+    text-align: center;
+}
+
+// 4. Photo -> Block
+
+.photo {
+    position: relative;
+    box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+    border-radius: 10%;
+}
+
+.photo__overlay {
+    position: relative;
+}
+
+.photo__overlay:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    border-radius: 10%;
+}
+
+.photo__img {
+    margin-bottom: 0;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10%;
+}
+
+.photo__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 10%;
+}
+
+.photo__title {
+    color: $clr-white-custom;
+}
+
+// 5. Text -> Block
+
+.text-content {
+    text-align: justify;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.text-content--margin-top {
+    margin-top: 1.3em;
+}
