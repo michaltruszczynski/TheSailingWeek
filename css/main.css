@@ -400,14 +400,72 @@ div {
 }
 
 .card {
-  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+}
+
+.card__text-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.card__text-heading--margin-top-small {
+  margin-top: 0.5rem;
+}
+
+.card__text-heading--margin-bottom-small {
+  margin-bottom: 0.5rem;
+}
+
+.card__text-content {
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.card__text-content--margin-top-small {
+  margin-top: 0.5rem;
+}
+
+.card__text-content--margin-bottom-small {
+  margin-bottom: 0.5rem;
+}
+
+.card__text-author {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: right;
+  color: #838995;
+}
+
+.card__link {
+  text-decoration: none;
+  color: #41889D;
+  display: block;
+  text-align: left;
+  font-weight: 500;
+}
+
+.card__button {
+  color: #41889D;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  -ms-grid-column-align: start;
+      justify-self: start;
 }
 
 .photo {
   position: relative;
   -webkit-box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
           box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
-  border-radius: 10%;
+  border-radius: 8px;
 }
 
 .photo__overlay {
@@ -423,7 +481,7 @@ div {
   bottom: 0;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  border-radius: 10%;
+  border-radius: 8px;
 }
 
 .photo__img {
@@ -433,7 +491,7 @@ div {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  border-radius: 10%;
+  border-radius: 8px;
 }
 
 .photo__info {
@@ -443,21 +501,74 @@ div {
   height: 100%;
   width: 100%;
   padding: 1.25rem;
-  border-radius: 10%;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .photo__title {
   color: #F1F0EE;
 }
 
-.text-content {
-  text-align: justify;
-  font-weight: 300;
-  font-size: 1rem;
+.card-white {
+  background: #EDECEC;
+  -webkit-box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+          box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.text-content--margin-top {
-  margin-top: 1.3em;
+.rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.rating__score {
+  font-size: 1.5rem;
+  -webkit-text-decoration-color: aqua;
+          text-decoration-color: aqua;
+}
+
+.rating__date {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #838995;
+}
+
+.accordion-container {
+  padding: 2rem;
+}
+
+.accordion {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  border-bottom: 1px solid #838995;
+  margin: 0.5rem 0;
+}
+
+.accordion__button {
+  background: transparent;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-weight: 500;
+  color: #06171E;
+  text-align: left;
+  margin: 0.25rem 0;
+}
+
+.accordion__text {
+  text-align: left;
+  padding: 1.25rem;
+  margin: 0.25rem;
+  font-weight: 300;
 }
 
 nav {
@@ -742,6 +853,10 @@ nav ul a:hover {
   font-size: 2rem;
 }
 
+.text-content--margin-top {
+  margin-top: 1.3em;
+}
+
 .section__container--destinations {
   display: -ms-grid;
   display: grid;
@@ -795,73 +910,218 @@ nav ul a:hover {
   display: block;
 }
 
-.section--opinions {
-  max-width: 1280px;
-  margin: 5rem auto;
+.section__container--opinions {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  justify-items: center;
 }
 
-.section__title--opinions {
-  font-size: 1.2rem;
-  margin-bottom: 0.45rem;
-}
-
-.opinion__container {
+.opinion-list {
+  padding: 3.75rem 0 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.card--opinion {
+  max-width: 768px;
+  margin-left: 1.25rem;
+}
+
+.section__container-steps {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  justify-items: center;
+}
+
+.section__heading {
+  color: #41889D;
+  font-weight: 600;
+  margin: 0.5rem auto;
+}
+
+.step {
+  text-align: center;
+}
+
+.step__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2rem;
+}
+
+.step__count {
+  height: 3rem;
+  width: 3rem;
+  background: #41889D;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.step__number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: 500;
+  color: #EDECEC;
+  font-size: 1.2rem;
+}
+
+.step__title {
+  color: #41889D;
+}
+
+.step-one {
+  margin-top: 2rem;
+}
+
+.step__buttons-container {
+  text-align: center;
+}
+
+.btn-step-one {
+  color: #586066;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  padding: 12px 20px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.btn-step-one--active {
+  color: #41889D;
+  border-bottom: 3px solid #41889D;
+}
+
+.first-step {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(auto, 23rem))[2];
+      grid-template-columns: repeat(2, minmax(auto, 23rem));
+  grid-gap: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.opinion__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.card--step-info {
+  padding: 0.5rem;
 }
 
-.opinion {
-  padding: 20px;
+.first-step--hidden {
+  display: none;
 }
 
-.opinion__data {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.step__options--step-two {
+  margin-top: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
 }
 
-.opinion__rating {
-  font-size: 20px;
-  -webkit-text-decoration-color: aqua;
-          text-decoration-color: aqua;
+@media (max-width: 1024px) {
+  .step__options--step-two {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
 }
 
-.opinion__date {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: #838995;
+@media (max-width: 768px) {
+  .step__options--step-two {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
 }
 
-.opinion__title {
+.photo__img--details-step-two {
+  width: 100%;
+  height: 196px;
+}
+
+.step__options--step-three {
+  margin-top: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .step__options--step-three {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
+}
+
+.payments {
+  padding: 0;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.dot--green {
+  background: #28aa5e;
+}
+
+.dot--red {
+  background: #BE7E40;
+}
+
+.dot--blue {
+  background: #6592A5;
+}
+
+.payments {
+  list-style: none;
+  text-align: left;
+}
+
+.text--green {
+  color: #28aa5e;
   font-weight: 600;
-  font-size: 1rem;
 }
 
-.opinion__text {
-  font-size: 1rem;
-  font-weight: 300;
+.text--red {
+  color: #BE7E40;
+  font-weight: 600;
 }
 
-.opinion__author {
-  font-size: 0.8rem;
-  color: #838995;
-  font-weight: 300;
+.text--blue {
+  color: #6592A5;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */

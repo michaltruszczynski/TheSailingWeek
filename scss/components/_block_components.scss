@@ -1,25 +1,21 @@
-
-// Using BEM methodology. List of block elements used
+// Using BEM methodology. List of block elements used.
 // Table of content:
 // 1. Main section.
 // 2. Section
 // 3. Card.
 // 4. Photo.
-// 5. Text.
-// 6.
-// 7.
+// 5. Card White.
+// 6. Rating.
+// 7. Accordion.
 // 8.
 // 9.
 // 10.
-
-
 
 // 1. Main Section -> block
 
 .main-section {
     overflow: hidden;
 }
-
 
 // 2. Section -> block
 
@@ -50,10 +46,65 @@
     margin: 1rem auto 0;
 }
 
-// 3. Card -> block
+// 3. Card -> block  // check if ok
 
 .card {
-    text-align: center;
+    // text-align: center;
+    display: grid;
+    grid-auto-rows: max-content;
+}
+
+.card__text-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.card__text-heading--margin-top-small {
+    margin-top: 0.5rem;
+}
+
+.card__text-heading--margin-bottom-small {
+    margin-bottom: 0.5rem;
+}
+
+.card__text-content {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: justify;
+}
+
+.card__text-content--margin-top-small {
+    margin-top: 0.5rem;
+}
+
+.card__text-content--margin-bottom-small {
+    margin-bottom: 0.5rem;
+}
+
+.card__text-author {
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: right;
+    color: rgb(131, 137, 149);
+}
+
+.card__link {
+    text-decoration: none;
+    color: $clr-bg;
+    display: block;
+    text-align: left;
+    font-weight: 500;
+}
+
+.card__button {
+    color: $clr-bg;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: all 0.2s ease-out;
+    justify-self: start;
 }
 
 // 4. Photo -> Block
@@ -61,7 +112,7 @@
 .photo {
     position: relative;
     box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
-    border-radius: 10%;
+    border-radius: 8px;
 }
 
 .photo__overlay {
@@ -76,7 +127,7 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    border-radius: 10%;
+    border-radius: 8px;
 }
 
 .photo__img {
@@ -84,31 +135,86 @@
     display: block;
     object-fit: cover;
     object-position: center;
-    border-radius: 10%;
+    border-radius: 8px;
 }
 
 .photo__info {
     position: absolute;
     top: 0;
     left: 0;
+    // right: 0;
+    // bottom: 0;
     height: 100%;
     width: 100%;
     padding: 1.25rem;
-    border-radius: 10%;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 0;
+    // overflow: hidden;
 }
 
 .photo__title {
     color: $clr-white-custom;
 }
 
-// 5. Text -> Block
+// 5. Card White -> Block
 
-.text-content {
-    text-align: justify;
-    font-weight: 300;
-    font-size: 1rem;
+.card-white {
+    background: $clr-white-custom-dark;
+    box-shadow: 0 0 5px 1px rgba(10, 22, 70, 0.07), 0 32px 40px -2px rgba(10, 22, 70, 0.12);
+    border-radius: 8px;
+    padding: 1rem;
 }
 
-.text-content--margin-top {
-    margin-top: 1.3em;
+// 6. Rating -> Block
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating__score {
+    font-size: 1.5rem;
+    text-decoration-color: aqua;
+}
+
+.rating__date {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgb(131, 137, 149);
+}
+
+// 7 . Accordion -> Block
+
+.accordion-container {
+    padding: 2rem;
+}
+
+.accordion {
+    display: grid;
+    grid-template-rows: auto;
+    border-bottom: 1px solid rgb(131, 137, 149);
+    margin: 0.5rem 0;
+}
+
+.accordion__content {
+}
+
+.accordion__button {
+    background: transparent;
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: 500;
+    color: $clr-black-custom;
+    text-align: left;
+    margin: 0.25rem 0;
+}
+
+.accordion__text {
+    text-align: left;
+    padding: 1.25rem;
+    margin: 0.25rem;
+    font-weight: 300;
 }
