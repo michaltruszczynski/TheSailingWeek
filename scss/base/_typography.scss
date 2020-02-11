@@ -19,6 +19,15 @@ div {
     box-sizing: border-box;
 }
 
-*::before, *::after {
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+//to be changed
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }

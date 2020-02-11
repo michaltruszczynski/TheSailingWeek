@@ -150,7 +150,6 @@
     border-radius: 8px;
     text-align: center;
     margin-bottom: 0;
-    // overflow: hidden;
 }
 
 .photo__title {
@@ -198,6 +197,7 @@
 }
 
 .accordion__content {
+
 }
 
 .accordion__button {
@@ -210,6 +210,11 @@
     color: $clr-black-custom;
     text-align: left;
     margin: 0.25rem 0;
+}
+
+.accordion__button::after {
+    content: '\25be';
+    transform: scale(1.5)
 }
 
 .accordion__text {

@@ -129,9 +129,18 @@
     }
 }
 
+.card-white--step-payments {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .payments {
+    margin-top: 0;
     padding: 0;
-    // text-align: justify;
+    
 }
 
 .dot {
