@@ -715,26 +715,25 @@
         <!-- Newsletter -->
 
         <section class="section section--newsletter">
+            <form method="POST">
             <div class="section__container section__container--newsletter">
-
-                <div class="banner">
-                    <div class="banner__container banner__container--center">
-                        <p class="banner__subheading">Chciabyś być na bieżąco? </p>
-                        <h2 class="banner__heading">Zapisz sie do naszego newslettera</h2>
-                        <p class="banner__text">Obiecujemy, nie zasypiemy cię spamem</p>
-                        <form method="POST">
-                            <div class="input-container">
-                                <input class="input-field" placeholder="Imie">
-                                <input class="input-field" placeholder="Nazwisko">
-                                <input class="input-field" placeholder="E-mail">
-                                <input type="submit" value="Zapisz sie" class="btn-submit">
-                            </div>
-                        </form>
-                    </div>
+                <div class="banner banner--center">
+                    <p class="banner__subheading">Chciabyś być na bieżąco?</p>
+                    <h2 class="banner__heading">Zapisz sie do naszego newslettera</h2>
+                    <p class="banner__text">Obiecujemy, nie zasypiemy cię spamem</p>
+                    
+                        <div class="input-container">
+                            <input type="text" class="input__field" placeholder="Imie">
+                            <input type="text" class="input__field" placeholder="Nazwisko">
+                            <input type="email" class="input__field input__field--error" placeholder="E-mail">
+                            <input type="submit" value="Zapisz się" class="btn__submit">
+                        </div>
+                        <span class="form__error-message">Proszę podać poprawny email</span>
+                    
+                    
                 </div>
-
             </div>
-
+        </form>
         </section>
 
 

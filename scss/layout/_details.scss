@@ -4,11 +4,11 @@
     justify-items: center;
 }
 
-.section__heading {
-    color: $clr-bg;
-    font-weight: 600;
-    margin: 0.5rem auto;
-}
+// .section__heading {
+//     color: $clr-bg;
+//     font-weight: 600;
+//     margin: 0.5rem auto;
+// }
 
 .step {
     text-align: center;
@@ -114,7 +114,6 @@
 
 //Step three
 
-
 .step__options--step-three {
     margin-top: 3rem;
     display: grid;
@@ -140,7 +139,6 @@
 .payments {
     margin-top: 0;
     padding: 0;
-    
 }
 
 .dot {
@@ -182,4 +180,3 @@
     color: $clr-blue-ligth;
     font-weight: 600;
 }
-
