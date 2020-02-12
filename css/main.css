@@ -1284,4 +1284,16 @@ nav ul a:hover {
   font-size: 0.9rem;
   color: #d50000;
 }
+
+.section__container--footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+}
+
+.footer__social {
+  grid-column: 1 / -1;
+}
 /*# sourceMappingURL=main.css.map */
