@@ -5,15 +5,37 @@
 }
 
 .helper-wrapper-opinion-list {
+    width: 100%;
+
 }
 
 .opinion-list {
     padding: 3.75rem 0 0 0;
-    display: flex;
-    flex-wrap: nowrap;
+    // display: flex;
+    // flex-wrap: nowrap;
 }
 
 .card--opinion {
     max-width: 768px;
-    margin-left: 1.25rem;
+    padding: 0 0.5rem;
+    // margin-left: 1.25rem;
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    // overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 125%;
+    flex-shrink: 0;
+    transition: transform 0.5s linear;
+}
+
+.slide {
+    flex-basis: 20%;
+    flex-shrink: 0;
 }
