@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.dots = null; // or []
             this.autoSlider = null; // option
             this.direction = -1;
+            this.autoSlide = null;
             this.generateSlider();
 
         }
@@ -85,9 +86,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.carousel = this.slider.parentElement;
             this.slider.classList.add('slider');
             this.slides = this.slider.children;
-            this.slidesCount = this.slides.childElementCount;
+            this.slidesCount = this.slider.childElementCount;
             this.slidesToMove = this.slidesCount - this.slidesVisible
-
+            console.log(this.slidesCount, this.slider.childElementCount)
             for (let i = 0; i < this.slides.length; i++) {
                 this.slides[i].classList.add('slide');
                 // important when adding options functionality
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             this.slider.addEventListener('transitionend', () => {
-                console.log(this)
+                // console.log(this)
                 if (this.direction === 1) {
                     this.slider.prepend(this.slider.lastElementChild);
                 } else {
@@ -109,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
             });
             this.createButtons();
+            this.autoChange(2000);
         }
 
         createButtons() {
@@ -128,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         slidePrev() {
             if (this.direction === -1) {
                 this.direction = 1;
-
+                console.log('test', this.slidesToMove)
                 for (let i = 0; i < this.slidesToMove; i++) {
                     this.slider.prepend(this.slider.lastElementChild);
                 }
@@ -149,6 +151,41 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.slider.style.transform = 'translateX(-20%)';
         }
 
+        autoChange(interval) {
+
+            let mouseOverTimer = null;
+            let carouselStop = 0;
+            this.carousel.addEventListener('mouseenter', () => {
+                mouseOverTimer = setTimeout(() => {
+                    clearInterval(this.autoSlide);
+                    // console.log(this.autoSlide);
+                    console.log('stop');
+                    carouselStop = 1;
+                }, 1500);
+            })
+
+            this.carousel.addEventListener('mouseleave', () => {
+                clearTimeout(mouseOverTimer);
+                console.log('test');
+                console.log(mouseOverTimer);
+                if (carouselStop === 1) {
+                    carouselStop = 0;
+                    this.autoSlide = setInterval(() => {
+                        this.slideNext();
+                    }, interval);
+                }
+            })
+
+            this.autoSlide = setInterval(() => {
+                this.slideNext();
+            }, interval);
+
+
+        }
+
+        mouseCheck() {
+
+        }
 
     }
 
