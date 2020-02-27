@@ -585,7 +585,7 @@ input {
 }
 
 .accordion__button::after {
-  content: '>';
+  content: ">";
   text-align: right;
   position: absolute;
   right: 0;
@@ -605,6 +605,27 @@ input {
   padding: 1.25rem;
   margin: 0.25rem;
   font-weight: 300;
+}
+
+.slider__dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  padding: 1rem;
+  background: black;
+}
+
+.slider__dot__button {
+  background: #F1F0EE;
+  width: 2.5rem;
+  height: 0.3rem;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
 }
 
 nav {

@@ -7,7 +7,7 @@
 // 5. Card White.
 // 6. Rating.
 // 7. Accordion.
-// 8.
+// 8. Caousel dots.
 // 9.
 // 10.
 
@@ -221,7 +221,7 @@
 }
 
 .accordion__button::after {
-    content: '>';
+    content: ">";
     text-align: right;
     position: absolute;
     right: 0;
@@ -242,5 +242,23 @@
     padding: 1.25rem;
     margin: 0.25rem;
     font-weight: 300;
-    
+}
+
+// 8. Carousel dots
+
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+    background: black;
+}
+
+.slider__dot__button {
+    background: $clr-white-custom;
+    width: 2.5rem;
+    height: 0.3rem;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
 }

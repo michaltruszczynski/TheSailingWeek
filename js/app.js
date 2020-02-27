@@ -110,7 +110,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
             });
             this.createButtons();
-            this.autoChange(2000);
+            // this.autoChange(2000);
+        }
+
+        createDots() {
+            const ulDots = document.createElement('ul');
+            
         }
 
         createButtons() {
@@ -183,10 +188,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
-        mouseCheck() {
-
-        }
-
+        
     }
 
     const slider1 = new Slider('.opinion-list', 4);
