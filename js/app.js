@@ -60,6 +60,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             button.nextElementSibling.classList.toggle('accordion__content--active');
         });
     });
+    class Accordion {
+        constructor(accordionSelector) {
+            this.accordionSelector = accordionSelector;
+
+        }
+    }
 
 
     class Slider {
@@ -115,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         createDots() {
             const ulDots = document.createElement('ul');
-            
+
         }
 
         createButtons() {
@@ -188,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
-        
+
     }
 
     const slider1 = new Slider('.opinion-list', 4);
