@@ -63,16 +63,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     class Accordion {
         constructor(accordionSelector) {
             this.accordionSelector = accordionSelector;
+            this.accordionList = null;
 
         }
     }
 
-
     class Slider {
-        constructor(sliderSelector, slidesVisible, dots, controls, autoSlider) {
+        constructor(sliderSelector, slidesVisible, sliderName, dots, controls, autoSlider) {
             this.currentSlide = 0; // lub null
             this.sliderSelector = sliderSelector;
             this.slider = null;
+            this.sliderName = sliderName;
             this.slides = null;
             this.slidesVisible = slidesVisible; // option
             this.slidesCount = null;
@@ -83,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.direction = -1;
             this.autoSlide = null;
             this.generateSlider();
+            this.changeDots();
+            this.createDots();
 
         }
 
@@ -90,13 +93,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         generateSlider() {
             this.slider = document.querySelector(this.sliderSelector);
             this.carousel = this.slider.parentElement;
-            this.slider.classList.add('slider');
+            this.slider.classList.add(`slider-${this.sliderName}`);
             this.slides = this.slider.children;
             this.slidesCount = this.slider.childElementCount;
             this.slidesToMove = this.slidesCount - this.slidesVisible
             console.log(this.slidesCount, this.slider.childElementCount)
             for (let i = 0; i < this.slides.length; i++) {
-                this.slides[i].classList.add('slide');
+                this.slides[i].classList.add(`slide-${this.sliderName}`);
                 // important when adding options functionality
                 // this.slides.style = `flex-basis: `
             }
@@ -121,7 +124,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         createDots() {
             const ulDots = document.createElement('ul');
+            ulDots.classList.add('slider__dots');
+            for (let i = 0; i < this.slidesCount; i++) {
+                const dot = document.createElement('li');
+                dot.classList.add('slider__dot')
+                const button = document.createElement('button');
+                button.classList.add('slider__dot__button');
+                dot.append(button);
+                ulDots.append(dot)
+            }
 
+            this.slider.parentElement.parentElement.parentElement.append(ulDots);
+
+        }
+
+        changeDots() {
+            const dotsList = document.querySelectorAll('.slider__dot');
+            console.log(dotsList);
+            dotsList.forEach((dot, i) => {
+                console.log(dot);
+                dot.setAttribute('dot-number', i)
+            })
+            // console.log(dotsList.querySelector(`li[dot-number="${1}]"`));
+            // console.log(dotsList.querySelector('li'))
         }
 
         createButtons() {
@@ -190,14 +215,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.autoSlide = setInterval(() => {
                 this.slideNext();
             }, interval);
-
-
         }
+
+
 
 
     }
 
-    const slider1 = new Slider('.opinion-list', 4);
+    // const sliderMain = new Slider();
+    const sliderOpinion = new Slider('.opinion-list', 4, 'opinion');
+
+    console.log(window.innerWidth);
+    console.log(document.documentElement.clientWidth);
 
 });
 

@@ -396,6 +396,7 @@ input {
   font-weight: 600;
   letter-spacing: 1px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .section__text {
@@ -409,8 +410,9 @@ input {
 .card {
   display: -ms-grid;
   display: grid;
-  grid-auto-rows: -webkit-max-content;
-  grid-auto-rows: max-content;
+  -ms-grid-rows: max-content;
+      grid-template-rows: -webkit-max-content;
+      grid-template-rows: max-content;
 }
 
 .card__text-heading {
@@ -753,8 +755,7 @@ nav ul a:hover {
 .section__container--experiance {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  grid-auto-rows: auto;
   justify-items: center;
   grid-gap: 3rem;
 }
@@ -771,8 +772,7 @@ nav ul a:hover {
   .experiance-list {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: auto;
-        grid-template-rows: auto;
+    grid-auto-rows: auto;
   }
 }
 
@@ -780,8 +780,7 @@ nav ul a:hover {
   .experiance-list {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
-    -ms-grid-rows: auto;
-        grid-template-rows: auto;
+    grid-auto-rows: auto;
   }
 }
 
@@ -821,6 +820,7 @@ nav ul a:hover {
 .destinations-list {
   position: absolute;
   left: 0;
+  width: 100%;
   width: 200%;
   padding: 3.75rem 1.25rem;
   display: -webkit-box;
@@ -831,6 +831,7 @@ nav ul a:hover {
   overflow-x: scroll;
   -webkit-transform: translateX(-20px);
           transform: translateX(-20px);
+  scrollbar-width: none;
 }
 
 .destinations-list::-webkit-scrollbar {
@@ -858,24 +859,18 @@ nav ul a:hover {
 }
 
 .section__container--opinions {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-  justify-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: flex-start;
 }
 
 .helper-wrapper-opinion-list {
   width: 100%;
-}
-
-.opinion-list {
-  padding: 3.75rem 0 0 0;
-}
-
-.card--opinion {
-  max-width: 768px;
-  padding: 0 0.5rem;
 }
 
 .carousel {
@@ -886,26 +881,63 @@ nav ul a:hover {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
 }
 
-.slider {
+.opinion-list {
+  padding: 3.75rem 0 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 125%;
+}
+
+.slider-opinion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% * (5 / 4));
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -webkit-transition: -webkit-transform 0.5s linear;
   transition: -webkit-transform 0.5s linear;
   transition: transform 0.5s linear;
   transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+  height: 100%;
 }
 
-.slide {
+.card--opinion {
+  max-width: 768px;
+  padding: 0 0.5rem;
+  grid-auto-rows: auto;
+}
+
+.slide-opinion {
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+@media (max-width: 1280px) {
+  .slider-opinion {
+    width: calc(100% * (5 / 3));
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider-opinion {
+    width: calc(100% * (5 / 2));
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-opinion {
+    width: calc(100% * (5 / 1));
+  }
 }
 
 .section__container-steps {

@@ -36,6 +36,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .section__text {
@@ -51,7 +52,7 @@
 .card {
     // text-align: center;
     display: grid;
-    grid-auto-rows: max-content;
+    grid-template-rows: max-content;
 }
 
 .card__text-heading {

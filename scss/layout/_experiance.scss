@@ -1,6 +1,6 @@
 .section__container--experiance {
     display: grid;
-    grid-template-rows: auto;
+    grid-auto-rows: auto;
     justify-items: center;
     grid-gap: 3rem;
 }
@@ -14,14 +14,14 @@
 @media (max-width: 1024px) {
     .experiance-list {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
     }
 }
 
 @media (max-width: 768px) {
     .experiance-list {
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
     }
 }
 .photo__img--experiance {

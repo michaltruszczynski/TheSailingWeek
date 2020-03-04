@@ -13,6 +13,7 @@
 .destinations-list {
     position: absolute;
     left: 0;
+    width: 100%;
     width: 200%;
     padding: 3.75rem 1.25rem;
     display: flex;
@@ -20,9 +21,11 @@
     overflow-x: scroll;
     transform: translateX(-20px);
 
-    &::-webkit-scrollbar {
+    scrollbar-width: none; //Firefox - no scrollbar
+
+    &::-webkit-scrollbar { //No scrollbar
         display: none;
-      }
+    }
 }
 
 .card--destination {
