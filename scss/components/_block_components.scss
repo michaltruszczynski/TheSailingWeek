@@ -248,18 +248,41 @@
 // 8. Carousel dots
 
 .slider__dots {
+    width: 100%;
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 1rem;
-    background: black;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    margin: 0;
+    // background: black;
 }
 
-.slider__dot__button {
-    background: $clr-white-custom;
+.slider__dot {
+    margin: 0 0.1rem;
+    background-color: $clr-white-custom;
     width: 2.5rem;
     height: 0.3rem;
-    border-radius: 10px;
-    border: 0;
-    cursor: pointer;
+    border-radius: 0.6rem;
+    transition: background-color 0.3s ease-out;
 }
+
+.slider__dot--active {
+    background-color: $clr-grey-medium;
+}
+
+// .slider__dot__button {
+//     background-color: $clr-white-custom;
+//     width: 2.5rem;
+//     height: 0.3rem;
+//     border-radius: 0.6rem;
+//     border: 0;
+//     cursor: pointer;
+//     // transition: background-color ;
+// }
+
+// .slider__dot__button--active {
+//     background-color: $clr-grey-medium;
+// }

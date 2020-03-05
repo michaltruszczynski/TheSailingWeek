@@ -80,19 +80,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.slidesCount = null;
             this.next = null;
             this.prev = null;
-             // or []
+            this.currentSlideIndex = null;
+            this.ulDots = null;
+            // or {}
             this.autoSlider = null; // option
-            this.direction = -1;
+            this.direction = null;
             this.autoSlide = null;
             this.createControls = createControls;
-            // this.createDots = createDots && this.generateDots();
+            this.createDots = createDots;
             this.generateSlider();
-            this.changeDots();
-
         }
 
         // generate slider adds styling
         generateSlider() {
+            this.direction = -1;
             this.slider = document.querySelector(this.sliderSelector);
             this.carousel = this.slider.parentElement;
             this.slider.classList.add(`slider-${this.sliderName}`);
@@ -102,56 +103,86 @@ document.addEventListener("DOMContentLoaded", function (event) {
             console.log(this.slidesCount, this.slider.childElementCount)
             for (let i = 0; i < this.slides.length; i++) {
                 this.slides[i].classList.add(`slide-${this.sliderName}`);
-                // important when adding options functionality
-                // this.slides.style = `flex-basis: `
+                // if (i === 0) {
+                //     this.slides[i].classList.add('current-slide');
+                // }
             }
 
             this.slider.addEventListener('transitionend', () => {
 
                 if (this.direction === 1) {
                     this.slider.prepend(this.slider.lastElementChild);
+                    // this.slider.lastElementChild.classList.add('current-slide');
+
                 } else {
                     this.slider.append(this.slider.firstElementChild);
-                }
+                    // this.slider.firstElementChild.classList.add('current-slide');
 
+                }
+                this.addSlideActiveClass();
+                this.addDotActiveClass();
                 this.slider.style.transition = 'none';
                 this.slider.style.transform = 'translateX(0)';
                 setTimeout(() => {
-                    this.slider.style.transition = 'transform 0.2s linear';
+                    this.slider.style.transition = 'transform 0.3s linear';
                 });
+
             });
-            
+
             this.createControls && this.createButtons();
-            // this.createButtons();
+            this.createDots && this.generateDots();
             // this.autoChange(2000);
-            console.log(this.slider)
+
         }
 
         generateDots() {
-            const ulDots = document.createElement('ul');
-            ulDots.classList.add('slider__dots');
+            this.ulDots = document.createElement('ul');
+            this.ulDots.classList.add('slider__dots');
             for (let i = 0; i < this.slidesCount; i++) {
                 const dot = document.createElement('li');
-                dot.classList.add('slider__dot')
-                const button = document.createElement('button');
-                button.classList.add('slider__dot__button');
-                dot.append(button);
-                ulDots.append(dot)
+                dot.classList.add('slider__dot');
+                dot.setAttribute('data-dot-number', i)
+                // const button = document.createElement('button');
+                // button.classList.add('slider__dot__button');
+                // dot.append(button);
+                this.ulDots.append(dot)
+            }
+            this.slider.parentElement.parentElement.append(this.ulDots);
+
+            for (let i = 0; i < this.slides.length; i++) {
+                this.slides[i].setAttribute('data-slide-number', i);
             }
 
-            this.slider.parentElement.parentElement.parentElement.append(ulDots);
+            this.addSlideActiveClass();
+            this.addDotActiveClass();
+        }
+
+        addDotActiveClass() {
+            this.ulDots.children[this.currentSlideIndex].classList.add('slider__dot--active')
 
         }
 
-        changeDots() {
-            const dotsList = document.querySelectorAll('.slider__dot');
-            console.log(dotsList);
-            dotsList.forEach((dot, i) => {
-                console.log(dot);
-                dot.setAttribute('dot-number', i)
-            })
-            // console.log(dotsList.querySelector(`li[dot-number="${1}]"`));
-            // console.log(dotsList.querySelector('li'))
+        removeActiveClass() {
+            for (let i = 0; i < this.slides.length; i++) {
+                this.slides[i].classList.remove('current-slide');
+            }
+        }
+
+        removeDotActiveClass() {
+            for (let i = 0; i < this.ulDots.children.length; i++) {
+                this.ulDots.children[i].classList.remove('slider__dot--active');
+            }
+        }
+
+        addSlideActiveClass() {
+            if (this.direction === 1) {
+                this.slider.lastElementChild.classList.add('current-slide');
+                this.currentSlideIndex = parseInt(this.slider.lastElementChild.dataset.slideNumber);
+            } else {
+                this.slider.firstElementChild.classList.add('current-slide');
+                this.currentSlideIndex = parseInt(this.slider.firstElementChild.dataset.slideNumber)
+            }
+            console.log(this.currentSlideIndex)
         }
 
         createButtons() {
@@ -179,7 +210,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
             this.carousel.style.justifyContent = 'flex-end';
-            // this.slider.style.transform = 'translateX(20%)';
+            this.slider.style.transform = 'translateX(20%)';
+            this.removeActiveClass();
+            this.removeDotActiveClass();
         }
 
         slideNext() {
@@ -192,6 +225,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             this.carousel.style.justifyContent = 'flex-start';
             this.slider.style.transform = 'translateX(-20%)';
+            this.removeActiveClass();
+            this.removeDotActiveClass();
         }
 
         autoChange(interval) {
@@ -229,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    const sliderMain = new Slider('.slide-list', 1, 'slide', false, true);
+    const sliderMain = new Slider('.slide-list', 1, 'slider', true, true);
     const sliderOpinion = new Slider('.opinion-list', 4, 'opinion');
 
     console.log(window.innerWidth);

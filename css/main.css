@@ -610,6 +610,7 @@ input {
 }
 
 .slider__dots {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -618,16 +619,24 @@ input {
           justify-content: center;
   list-style: none;
   padding: 1rem;
-  background: black;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  margin: 0;
 }
 
-.slider__dot__button {
-  background: #F1F0EE;
+.slider__dot {
+  margin: 0 0.1rem;
+  background-color: #F1F0EE;
   width: 2.5rem;
   height: 0.3rem;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
+  border-radius: 0.6rem;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+
+.slider__dot--active {
+  background-color: #586066;
 }
 
 nav {
@@ -787,10 +796,10 @@ nav ul a:hover {
           justify-content: flex-start;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
 
 .carousel__slide {
@@ -813,6 +822,8 @@ nav ul a:hover {
 .carousel__button {
   position: absolute;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   border: 0;
   cursor: pointer;
   z-index: 2;
@@ -824,32 +835,6 @@ nav ul a:hover {
 
 .carousel__button--right {
   right: 2.5rem;
-}
-
-.carousel__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 10px 0;
-}
-
-.carousel__indicator {
-  border: 0;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  background: rgba(0, 0, 0, 0.3);
-  margin: 0 12px;
-  position: absolute;
-  bottom: 0;
-  z-index: 2;
-}
-
-.carousel__indicator.current--slide {
-  background: rgba(0, 0, 0, 0.75);
 }
 
 .section__container--intro {
@@ -1010,10 +995,10 @@ nav ul a:hover {
   width: calc(100% * (5 / 4));
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
   height: 100%;
 }
 
