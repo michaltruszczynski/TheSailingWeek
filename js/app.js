@@ -1,57 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    // Slider
-    // Slider container must have given width.
-    // Specify number of slides visible int the container.
-    // Total number of slides must be greater then number of slides visible in the container.
-
-    // const carousel = document.querySelector('.carousel');
-    // const slider = document.querySelector('.slider');
-    // const slidesCount = slider.childElementCount;
-    // const slidesVisible = 4; // to be included in class definition
-
-    // const next = document.querySelector('.next');
-    // const prev = document.querySelector('.prev');
-    // let direction = -1;
-
-    // next.addEventListener('click', function () {
-    //     if (direction === 1) {
-    //         direction = -1;
-    //         const slidesToMove = slidesCount - slidesVisible;
-    //         for (let i = 0; i < slidesToMove; i++) {
-    //             slider.appendChild(slider.firstElementChild);
-    //         }
-    //     }
-    //     carousel.style.justifyContent = 'flex-start';
-    //     slider.style.transform = 'translateX(-20%)';
-    // });
-
-    // prev.addEventListener('click', function () {
-    //     if (direction === -1) {
-    //         direction = 1;
-    //         const slidesToMove = slidesCount - slidesVisible;
-    //         for (let i = 0; i < slidesToMove; i++) {
-    //             slider.prepend(slider.lastElementChild);
-    //         }
-    //     }
-    //     carousel.style.justifyContent = 'flex-end';
-    //     slider.style.transform = 'translateX(20%)';
-    // });
-
-    // slider.addEventListener('transitionend', function () {
-    //     if (direction === 1) {
-    //         slider.prepend(slider.lastElementChild);
-    //     } else {
-    //         slider.appendChild(slider.firstElementChild);
-    //     }
-
-    //     slider.style.transition = 'none';
-    //     slider.style.transform = 'translateX(0)';
-    //     setTimeout(function () {
-    //         slider.style.transition = 'transform 0.5s linear';
-    //     });
-    // });
-
     // Accordion
 
     document.querySelectorAll('.accordion__button').forEach(button => {
@@ -60,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             button.nextElementSibling.classList.toggle('accordion__content--active');
         });
     });
+
     class Accordion {
         constructor(accordionSelector) {
             this.accordionSelector = accordionSelector;
@@ -67,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
     }
+
+    //Slider
 
     class Slider {
         constructor(sliderSelector, slidesVisible, sliderName, createDots = false, createControls = false, autoSlider = false) {
@@ -100,24 +51,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.slides = this.slider.children;
             this.slidesCount = this.slider.childElementCount;
             this.slidesToMove = this.slidesCount - this.slidesVisible
-            console.log(this.slidesCount, this.slider.childElementCount)
+
             for (let i = 0; i < this.slides.length; i++) {
                 this.slides[i].classList.add(`slide-${this.sliderName}`);
-                // if (i === 0) {
-                //     this.slides[i].classList.add('current-slide');
-                // }
             }
 
             this.slider.addEventListener('transitionend', () => {
 
                 if (this.direction === 1) {
                     this.slider.prepend(this.slider.lastElementChild);
-                    // this.slider.lastElementChild.classList.add('current-slide');
-
                 } else {
                     this.slider.append(this.slider.firstElementChild);
-                    // this.slider.firstElementChild.classList.add('current-slide');
-
                 }
                 this.addSlideActiveClass();
                 this.addDotActiveClass();
@@ -159,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         addDotActiveClass() {
             this.ulDots.children[this.currentSlideIndex].classList.add('slider__dot--active')
-
         }
 
         removeActiveClass() {
@@ -182,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.slider.firstElementChild.classList.add('current-slide');
                 this.currentSlideIndex = parseInt(this.slider.firstElementChild.dataset.slideNumber)
             }
-            console.log(this.currentSlideIndex)
         }
 
         createButtons() {
@@ -204,13 +146,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         slidePrev() {
             if (this.direction === -1) {
                 this.direction = 1;
-                console.log('test', this.slidesToMove, this.slider)
                 for (let i = 0; i < this.slidesToMove; i++) {
                     this.slider.prepend(this.slider.lastElementChild);
                 }
             }
             this.carousel.style.justifyContent = 'flex-end';
-            this.slider.style.transform = 'translateX(20%)';
+            this.slider.style.transform = 'translateX(25%)';
             this.removeActiveClass();
             this.removeDotActiveClass();
         }
@@ -224,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
             this.carousel.style.justifyContent = 'flex-start';
-            this.slider.style.transform = 'translateX(-20%)';
+            this.slider.style.transform = 'translateX(-25%)';
             this.removeActiveClass();
             this.removeDotActiveClass();
         }
@@ -236,16 +177,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.carousel.addEventListener('mouseenter', () => {
                 mouseOverTimer = setTimeout(() => {
                     clearInterval(this.autoSlide);
-                    // console.log(this.autoSlide);
-                    console.log('stop');
                     carouselStop = 1;
                 }, 1500);
             })
 
             this.carousel.addEventListener('mouseleave', () => {
                 clearTimeout(mouseOverTimer);
-                console.log('test');
-                console.log(mouseOverTimer);
                 if (carouselStop === 1) {
                     carouselStop = 0;
                     this.autoSlide = setInterval(() => {
@@ -258,9 +195,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.slideNext();
             }, interval);
         }
-
-
-
 
     }
 

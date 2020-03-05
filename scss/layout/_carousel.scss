@@ -37,10 +37,6 @@
     transition: transform 0.3s ease-out;
 }
 
-.carousel__track--transition {
-    // transition: transform 200ms ease-in;
-}
-
 .carousel__slide {
     flex-basis: 20%;
     flex-shrink: 1;
@@ -60,13 +56,18 @@
     border: 0;
     cursor: pointer;
     z-index: 2;
+    color: $clr-white-custom-dark;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: 400;
 }
 
 .carousel__button--left {
-    left: 2.5rem;
+    left: 2rem;
 }
 .carousel__button--right {
-    right: 2.5rem;
+    right: 2rem;
 }
 
 // .carousel__indicator {

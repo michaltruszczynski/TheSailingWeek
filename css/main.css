@@ -827,14 +827,19 @@ nav ul a:hover {
   border: 0;
   cursor: pointer;
   z-index: 2;
+  color: #EDECEC;
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: 400;
 }
 
 .carousel__button--left {
-  left: 2.5rem;
+  left: 2rem;
 }
 
 .carousel__button--right {
-  right: 2.5rem;
+  right: 2rem;
 }
 
 .section__container--intro {
