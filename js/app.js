@@ -69,23 +69,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     class Slider {
-        constructor(sliderSelector, slidesVisible, sliderName, dots, controls, autoSlider) {
+        constructor(sliderSelector, slidesVisible, sliderName, createDots = false, createControls = false, autoSlider = false) {
             this.currentSlide = 0; // lub null
             this.sliderSelector = sliderSelector;
             this.slider = null;
             this.sliderName = sliderName;
             this.slides = null;
-            this.slidesVisible = slidesVisible; // option
+            this.slidesVisible = slidesVisible;
+            this.slidesToMove // option
             this.slidesCount = null;
             this.next = null;
             this.prev = null;
-            this.dots = null; // or []
+             // or []
             this.autoSlider = null; // option
             this.direction = -1;
             this.autoSlide = null;
+            this.createControls = createControls;
+            // this.createDots = createDots && this.generateDots();
             this.generateSlider();
             this.changeDots();
-            this.createDots();
 
         }
 
@@ -105,24 +107,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             this.slider.addEventListener('transitionend', () => {
-                // console.log(this)
+
                 if (this.direction === 1) {
                     this.slider.prepend(this.slider.lastElementChild);
                 } else {
-                    this.slider.appendChild(this.slider.firstElementChild);
+                    this.slider.append(this.slider.firstElementChild);
                 }
 
                 this.slider.style.transition = 'none';
                 this.slider.style.transform = 'translateX(0)';
                 setTimeout(() => {
-                    this.slider.style.transition = 'transform 0.5s linear';
+                    this.slider.style.transition = 'transform 0.2s linear';
                 });
             });
-            this.createButtons();
+            
+            this.createControls && this.createButtons();
+            // this.createButtons();
             // this.autoChange(2000);
+            console.log(this.slider)
         }
 
-        createDots() {
+        generateDots() {
             const ulDots = document.createElement('ul');
             ulDots.classList.add('slider__dots');
             for (let i = 0; i < this.slidesCount; i++) {
@@ -152,27 +157,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
         createButtons() {
             this.prev = document.createElement('button');
             this.prev.type = 'button';
-            this.prev.innerText = ' < Poprzedni';
+            this.prev.classList.add('carousel__button', 'carousel__button--left');
+            this.prev.innerText = ' < ';
             this.prev.addEventListener('click', this.slidePrev.bind(this));
-            this.slider.parentElement.parentElement.parentElement.appendChild(this.prev);
+            this.slider.parentElement.parentElement.appendChild(this.prev);
 
             this.next = document.createElement('button');
             this.next.type = 'button';
-            this.next.innerText = 'Następny > '
+            this.next.classList.add('carousel__button', 'carousel__button--right')
+            this.next.innerText = ' > '
             this.next.addEventListener('click', this.slideNext.bind(this))
-            this.slider.parentElement.parentElement.parentElement.appendChild(this.next);
+            this.slider.parentElement.parentElement.appendChild(this.next);
         }
 
         slidePrev() {
             if (this.direction === -1) {
                 this.direction = 1;
-                console.log('test', this.slidesToMove)
+                console.log('test', this.slidesToMove, this.slider)
                 for (let i = 0; i < this.slidesToMove; i++) {
                     this.slider.prepend(this.slider.lastElementChild);
                 }
             }
             this.carousel.style.justifyContent = 'flex-end';
-            this.slider.style.transform = 'translateX(20%)';
+            // this.slider.style.transform = 'translateX(20%)';
         }
 
         slideNext() {
@@ -222,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    // const sliderMain = new Slider();
+    const sliderMain = new Slider('.slide-list', 1, 'slide', false, true);
     const sliderOpinion = new Slider('.opinion-list', 4, 'opinion');
 
     console.log(window.innerWidth);
