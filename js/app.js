@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.autoSlide = null;
             this.createControls = createControls;
             this.createDots = createDots;
+            this.autoSlider = autoSlider;
             this.generateSlider();
         }
 
@@ -80,8 +81,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 } else {
                     this.slider.append(this.slider.firstElementChild);
                 }
-                this.addSlideActiveClass();
-                this.addDotActiveClass();
+                this.createControls && this.addSlideActiveClass();
+                this.createDots && this.addDotActiveClass();
                 this.slider.style.transition = 'none';
                 this.slider.style.transform = 'translateX(0)';
                 setTimeout(() => {
@@ -98,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.createControls && this.createButtons();
             this.createDots && this.generateDots();
+            this.autoSlider && this.autoChange();
             // this.autoChange(2000);
 
         }
@@ -108,11 +110,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             for (let i = 0; i < this.slidesCount; i++) {
                 const dot = document.createElement('li');
                 dot.classList.add('slider__dot');
-                dot.setAttribute('data-dot-number', i)
+                dot.setAttribute('data-dot-number', i);
                 // const button = document.createElement('button');
                 // button.classList.add('slider__dot__button');
                 // dot.append(button);
-                this.ulDots.append(dot)
+                this.ulDots.append(dot);
             }
 
             this.slider.parentElement.parentElement.append(this.ulDots);
@@ -130,12 +132,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             //     }
             // })
 
-            this.addSlideActiveClass();
-            this.addDotActiveClass();
+            this.createControls && this.addSlideActiveClass();
+            this.createDots && this.addDotActiveClass();
         }
 
         addDotActiveClass() {
-            this.ulDots.children[this.currentSlideIndex].classList.add('slider__dot--active')
+            this.ulDots.children[this.currentSlideIndex].classList.add('slider__dot--active');
         }
 
         removeActiveClass() {
@@ -156,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.currentSlideIndex = parseInt(this.slider.lastElementChild.dataset.slideNumber);
             } else {
                 this.slider.firstElementChild.classList.add('current-slide');
-                this.currentSlideIndex = parseInt(this.slider.firstElementChild.dataset.slideNumber)
+                this.currentSlideIndex = parseInt(this.slider.firstElementChild.dataset.slideNumber);
             }
         }
 
@@ -170,9 +172,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.next = document.createElement('button');
             this.next.type = 'button';
-            this.next.classList.add('carousel__button', 'carousel__button--right')
-            this.next.innerText = ' > '
-            this.next.addEventListener('click', this.slideNext.bind(this, 1))
+            this.next.classList.add('carousel__button', 'carousel__button--right');
+            this.next.innerText = ' > ';
+            this.next.addEventListener('click', this.slideNext.bind(this, 1));
             this.slider.parentElement.parentElement.appendChild(this.next);
         }
 
@@ -185,12 +187,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             this.carousel.style.justifyContent = 'flex-end';
             this.slider.style.transform = `translateX(${100 / this.slidesCount}%)`;
-            this.removeActiveClass();
-            this.removeDotActiveClass();
+            this.createControls && this.removeActiveClass();
+            this.createDots && this.removeDotActiveClass();
         }
 
         slideNext(slidesToMove) {
-            console.log(slidesToMove)
+            // console.log(slidesToMove)
             if (this.direction === 1) {
                 this.direction = -1;
 
@@ -200,12 +202,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             this.carousel.style.justifyContent = 'flex-start';
             this.slider.style.transform = `translateX(-${(100 / this.slidesCount) * slidesToMove}%)`;
-            this.removeActiveClass();
-            this.removeDotActiveClass();
+            this.createControls && this.removeActiveClass();
+            this.createDots && this.removeDotActiveClass();
         }
 
 
-        autoChange(interval) {
+        autoChange(interval = 2000) {
 
             let mouseOverTimer = null;
             let carouselStop = 0;
@@ -214,27 +216,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     clearInterval(this.autoSlide);
                     carouselStop = 1;
                 }, 1500);
-            })
+            });
 
             this.carousel.addEventListener('mouseleave', () => {
                 clearTimeout(mouseOverTimer);
                 if (carouselStop === 1) {
                     carouselStop = 0;
                     this.autoSlide = setInterval(() => {
-                        this.slideNext();
+                        this.slideNext(1);
                     }, interval);
                 }
-            })
+            });
 
             this.autoSlide = setInterval(() => {
-                this.slideNext();
+                this.slideNext(1);
             }, interval);
         }
 
     }
 
     const sliderMain = new Slider('.slide-list', 1, 'slider', true, true);
-    const sliderOpinion = new Slider('.opinion-list', 4, 'opinion');
+    const sliderOpinion = new Slider('.opinion-list', 4, 'opinion', false, false, true);
 
     const accordions = new Accordions('.accordion__button');
 
