@@ -1,20 +1,34 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    // Accordion
-
-    document.querySelectorAll('.accordion__button').forEach(button => {
-        button.addEventListener('click', () => {
-            button.classList.toggle('accordion__button--active');
-            button.nextElementSibling.classList.toggle('accordion__content--active');
-        });
-    });
-
-    class Accordion {
+    class Accordions {
         constructor(accordionSelector) {
             this.accordionSelector = accordionSelector;
             this.accordionList = null;
-
+            this.createAccordions();
         }
+
+        createAccordions() {
+            this.accordionList = document.querySelectorAll(this.accordionSelector);
+            this.accordionList = [...this.accordionList].map(accordion => {
+                accordion.addEventListener('click', () => {
+                    accordion.classList.toggle('accordion__button--active');
+                    accordion.nextElementSibling.classList.toggle('accordion__content--active');
+                });
+            });
+        }
+    }
+
+    class OptionMenu {
+        constructor(optionMenuSelector) {
+            this.optionMenuSelector = optionMenuSelector;
+            this.optionMenu = null;
+        }
+
+
+    }
+
+    class NavBar {
+
     }
 
     //Slider
@@ -46,17 +60,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         generateSlider() {
             this.direction = -1;
             this.slider = document.querySelector(this.sliderSelector);
+            this.slidesCount = this.slider.childElementCount;
             this.carousel = this.slider.parentElement;
             this.slider.classList.add(`slider-${this.sliderName}`);
             this.slides = this.slider.children;
-            this.slidesCount = this.slider.childElementCount;
             this.slidesToMove = this.slidesCount - this.slidesVisible
 
             for (let i = 0; i < this.slides.length; i++) {
                 this.slides[i].classList.add(`slide-${this.sliderName}`);
+                this.slides[i].style.flexBasis = `${100 / this.slidesCount}%`;
             }
 
             this.slider.addEventListener('transitionend', () => {
+
+                this.slider.style.transition = 'none';
 
                 if (this.direction === 1) {
                     this.slider.prepend(this.slider.lastElementChild);
@@ -72,6 +89,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
 
             });
+
+            if (this.createDots) {
+                for (let i = 0; i < this.slides.length; i++) {
+                    this.slides[i].setAttribute('data-slide-number', i);
+                }
+            }
 
             this.createControls && this.createButtons();
             this.createDots && this.generateDots();
@@ -91,11 +114,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 // dot.append(button);
                 this.ulDots.append(dot)
             }
+
             this.slider.parentElement.parentElement.append(this.ulDots);
 
-            for (let i = 0; i < this.slides.length; i++) {
-                this.slides[i].setAttribute('data-slide-number', i);
-            }
+            // this.ulDots.addEventListener('click', (e) => {
+            //     console.log(e.target);
+            //     const dotClickedIndex = e.target.dataset.dotNumber;
+            //     console.log(dotClickedIndex)
+            //     if (dotClickedIndex) {
+            //         const slidesToSkip = dotClickedIndex - this.currentSlideIndex;
+            //         console.log(slidesToSkip);
+            //         if (slidesToSkip <= this.slidesCount / 2) {
+            //             this.slideNext(slidesToSkip);
+            //         }
+            //     }
+            // })
 
             this.addSlideActiveClass();
             this.addDotActiveClass();
@@ -139,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.next.type = 'button';
             this.next.classList.add('carousel__button', 'carousel__button--right')
             this.next.innerText = ' > '
-            this.next.addEventListener('click', this.slideNext.bind(this))
+            this.next.addEventListener('click', this.slideNext.bind(this, 1))
             this.slider.parentElement.parentElement.appendChild(this.next);
         }
 
@@ -151,12 +184,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
             this.carousel.style.justifyContent = 'flex-end';
-            this.slider.style.transform = 'translateX(25%)';
+            this.slider.style.transform = `translateX(${100 / this.slidesCount}%)`;
             this.removeActiveClass();
             this.removeDotActiveClass();
         }
 
-        slideNext() {
+        slideNext(slidesToMove) {
+            console.log(slidesToMove)
             if (this.direction === 1) {
                 this.direction = -1;
 
@@ -165,10 +199,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
             this.carousel.style.justifyContent = 'flex-start';
-            this.slider.style.transform = 'translateX(-25%)';
+            this.slider.style.transform = `translateX(-${(100 / this.slidesCount) * slidesToMove}%)`;
             this.removeActiveClass();
             this.removeDotActiveClass();
         }
+
 
         autoChange(interval) {
 
@@ -200,6 +235,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const sliderMain = new Slider('.slide-list', 1, 'slider', true, true);
     const sliderOpinion = new Slider('.opinion-list', 4, 'opinion');
+
+    const accordions = new Accordions('.accordion__button');
 
     console.log(window.innerWidth);
     console.log(document.documentElement.clientWidth);

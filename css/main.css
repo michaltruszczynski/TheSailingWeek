@@ -803,8 +803,7 @@ nav ul a:hover {
 }
 
 .carousel__slide {
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
+  height: 100%;
   -ms-flex-negative: 1;
       flex-shrink: 1;
   -webkit-box-flex: 1;
@@ -832,6 +831,7 @@ nav ul a:hover {
   border: none;
   font-size: 2.5rem;
   font-weight: 400;
+  outline: none;
 }
 
 .carousel__button--left {
