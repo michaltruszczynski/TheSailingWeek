@@ -1,4 +1,4 @@
-nav {
+.menu {
     position: fixed;
     z-index: 3;
     top: 0;
@@ -8,55 +8,62 @@ nav {
     justify-content: space-between;
     align-items: center;
     transition: 0.2s;
-    background: transparent;
-
-    ul {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        justify-content: flex-end;
-        transition: 0.5s;
-
-        a {
-            color: $clr-white-custom;
-            text-decoration: none;
-            text-transform: uppercase;
-            display: block;
-            padding: 2em 1em;
-            font-weight: $fw-bold;
-
-            &:hover {
-                background-color: $clr-bg;
-            }
-        }
-    }
+    color: $clr-black-custom;
+    // color: $clr-bg;
+    background-color: rgba(237, 236, 236, 0.4);
 }
 
-.menu--white {
-    background-color: $clr-bg;
-
-    a {
-        &:hover {
-            background-color: $clr-white-custom;
-            color: $clr-bg;
-        }
-    }
-}
-
-.logo-nav {
-    margin: auto 2em;
+.menu__list {
     display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    transition: 0.5s;
+}
 
-    img {
-        // width: 60px;
-        // height: 3em;
-        width: 3em;
-    }
+.menu__link {
+    // color: $clr-grey-dark;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 2em 1em;
+    font-weight: $fw-bold;
+    
 
-    p {
+    &:hover {
+        background-color: $clr-bg;
         color: $clr-white-custom;
     }
+}
+
+// .menu--white {
+//     background-color: $clr-bg;
+
+//     .menu__link {
+//         &:hover {
+//             background-color: $clr-white-custom;
+//             color: $clr-bg;
+//         }
+//     }
+// }
+
+.logo {
+    margin: auto 2em;
+    display: flex;
+    // background: transparent;
+}
+
+.logo__img {
+    // width: 60px;
+    // height: 3em;
+    width: 3rem;
+}
+
+.logo__text {
+    // color: $clr-white-custom;
+    font-weight: 500;
 }
 
 .menu__toggle {
@@ -68,7 +75,6 @@ nav {
 }
 
 @media (max-width: 969px) {
-
     nav {
         // display: block;
         padding: 0.5em;
@@ -77,7 +83,7 @@ nav {
         ul {
             position: absolute;
             flex-direction: column;
-            top: 4.50em;
+            top: 4.5em;
             left: -100%;
             width: 100%;
             text-align: center;
