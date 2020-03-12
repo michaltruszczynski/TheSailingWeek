@@ -1,17 +1,29 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     //MENU - bgc on scroll
-    const nav = document.querySelector('nav');
+    // const navbar = document.querySelector('nav');
+    // const navbarHeight = navbar.offsetHeight;
+    // let lastScrollTop = 0;
+    // window.addEventListener('scroll', function () {
+    //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    //     if (scrollTop > lastScrollTop) {
+    //         navbar.style.top = `-${navbarHeight}px`;
 
-    function fixNav() {
-        if (window.scrollY > 10) {
-            nav.classList.add('menu--white')
-        } else {
-            nav.classList.remove('menu--white')
-        }
-    };
+    //     } else {
+    //         navbar.style.top = '0';
+    //     }
+    //     lastScrollTop = scrollTop;
+    // })
 
-    window.addEventListener('scroll', fixNav);
+    // function fixNav() {
+    //     if (window.scrollY > 10) {
+    //         nav.classList.add('menu--white')
+    //     } else {
+    //         nav.classList.remove('menu--white')
+    //     }
+    // };
+
+    // window.addEventListener('scroll', fixNav);
 
     //MENU - open/close on click
 
@@ -26,17 +38,69 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     menuBtn.addEventListener('click', menuToggle);
 
+    class ScrollSlider {
+        constructor(scrollsliderSelector, step) {
+            this.scrollsliderSelector = scrollsliderSelector;
+            this.scrollSlider = null;
+            this.next = null;
+            this.generateScrollSlider();
+        }
+
+        generateButtons() {
+            this.next = document.createElement('button');
+            this.next.innerText = ' < ';
+            this.next.classList.add('carousel-slider__button');
+            this.scrollSlider.parentElement.appendChild(this.next);
+        }
+
+
+        createButtons() {
+            this.prev = document.createElement('button');
+            this.prev.type = 'button';
+            this.prev.classList.add('carousel__button', 'carousel__button--left');
+            this.prev.innerText = ' < ';
+            this.prev.addEventListener('click', this.slidePrev.bind(this));
+            this.slider.parentElement.parentElement.appendChild(this.prev);
+
+            // this.next = document.createElement('button');
+            // this.next.type = 'button';
+            // this.next.classList.add('carousel__button', 'carousel__button--right');
+            // this.next.innerText = ' > ';
+            // this.next.addEventListener('click', this.slideNext.bind(this, 1));
+            // this.slider.parentElement.parentElement.appendChild(this.next);
+        }
+
+        generateScrollSlider() {
+            this.scrollSlider = document.querySelector(this.scrollsliderSelector)
+            // console.log(scrollSlider, this.prev);
+            this.generateButtons();
+        }
+
+    }
+
+
     class NavBar {
         constructor(menuSelector) {
             this.menuSelector = menuSelector;
             this.menu = null;
+            this.menuHeight = 0;
+            this.lastScrollTop = 0;
+            this.generateMenu();
         }
 
         generateMenu() {
             //dodatkowo sprawdzenie
             this.menu = document.querySelector(this.menuSelector);
+            this.menuHeight = menu.offsetHeight;
             window.addEventListener('scroll', () => {
-
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > this.lastScrollTop) {
+                    this.menu.style.top = `-${this.menuHeight}px`;
+        
+                } else {
+                    this.menu.style.top = '0';
+                }
+                this.lastScrollTop = scrollTop;
             });
         }
 
@@ -278,6 +342,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const sliderOpinion = new Slider('.opinion-list', 4, 'opinion', false, false, true);
 
     const accordions = new Accordions('.accordion__button');
+
+    const navBar = new NavBar('.menu');
+
+    const scrollSlider = new ScrollSlider('.destinations-list')
 
     console.log(window.innerWidth);
     console.log(document.documentElement.clientWidth);

@@ -639,6 +639,25 @@ input {
   background-color: #586066;
 }
 
+.carousel-slider__button {
+  background: rgba(241, 240, 238, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  outline: none;
+  display: block;
+  font-weight: 400;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  left: 1rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
 .menu {
   position: fixed;
   z-index: 3;
@@ -657,7 +676,7 @@ input {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   color: #06171E;
-  background-color: rgba(237, 236, 236, 0.4);
+  background-color: #ffffff;
 }
 
 .menu__list {
@@ -680,7 +699,7 @@ input {
   text-transform: uppercase;
   display: block;
   padding: 2em 1em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .menu__link:hover {
@@ -693,10 +712,13 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: #06171E;
 }
 
 .logo__img {
-  width: 3rem;
+  display: block;
+  height: 2.5rem;
+  width: auto;
 }
 
 .logo__text {

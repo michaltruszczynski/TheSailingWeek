@@ -10,7 +10,8 @@
     transition: 0.2s;
     color: $clr-black-custom;
     // color: $clr-bg;
-    background-color: rgba(237, 236, 236, 0.4);
+    // background-color: rgba(237, 236, 236, 0.4);
+    background-color: $clr-white;
 }
 
 .menu__list {
@@ -29,8 +30,7 @@
     text-transform: uppercase;
     display: block;
     padding: 2em 1em;
-    font-weight: $fw-bold;
-    
+    font-weight: 600;
 
     &:hover {
         background-color: $clr-bg;
@@ -52,13 +52,14 @@
 .logo {
     margin: auto 2em;
     display: flex;
+    color: $clr-black-custom;
     // background: transparent;
 }
 
 .logo__img {
-    // width: 60px;
-    // height: 3em;
-    width: 3rem;
+    display: block;
+    height: 2.5rem;
+    width: auto;
 }
 
 .logo__text {
