@@ -301,7 +301,14 @@
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    left: 1rem;
     z-index: 1;
     cursor: pointer;
+}
+
+.carousel-slider__button--left {
+    left: 1rem;
+}
+
+.carousel-slider__button--right {
+    right: 1rem;
 }

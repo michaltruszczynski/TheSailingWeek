@@ -653,9 +653,16 @@ input {
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  left: 1rem;
   z-index: 1;
   cursor: pointer;
+}
+
+.carousel-slider__button--left {
+  left: 1rem;
+}
+
+.carousel-slider__button--right {
+  right: 1rem;
 }
 
 .menu {
@@ -934,10 +941,8 @@ input {
 }
 
 .destinations-list {
-  position: absolute;
+  position: relative;
   left: 0;
-  width: 100%;
-  width: 200%;
   padding: 3.75rem 1.25rem;
   display: -webkit-box;
   display: -ms-flexbox;

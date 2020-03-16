@@ -43,38 +43,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.scrollsliderSelector = scrollsliderSelector;
             this.scrollSlider = null;
             this.next = null;
+            this.vst = 0;
+            this.moved = null;
             this.generateScrollSlider();
         }
 
         generateButtons() {
             this.next = document.createElement('button');
             this.next.innerText = ' < ';
-            this.next.classList.add('carousel-slider__button');
+            this.next.classList.add('carousel-slider__button', 'carousel-slider__button--left');
+            this.next.addEventListener('click', this.slideleft.bind(this));
             this.scrollSlider.parentElement.appendChild(this.next);
+
+
         }
 
-
-        createButtons() {
-            this.prev = document.createElement('button');
-            this.prev.type = 'button';
-            this.prev.classList.add('carousel__button', 'carousel__button--left');
-            this.prev.innerText = ' < ';
-            this.prev.addEventListener('click', this.slidePrev.bind(this));
-            this.slider.parentElement.parentElement.appendChild(this.prev);
-
-            // this.next = document.createElement('button');
-            // this.next.type = 'button';
-            // this.next.classList.add('carousel__button', 'carousel__button--right');
-            // this.next.innerText = ' > ';
-            // this.next.addEventListener('click', this.slideNext.bind(this, 1));
-            // this.slider.parentElement.parentElement.appendChild(this.next);
-        }
 
         generateScrollSlider() {
-            this.scrollSlider = document.querySelector(this.scrollsliderSelector)
+            this.scrollSlider = document.querySelector(this.scrollsliderSelector);
+            this.moved = getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim();
+            console.log(this.moved)
             // console.log(scrollSlider, this.prev);
             this.generateButtons();
         }
+
+        slideleft() {
+            // this.scrollSlider.scrollLeft += 10;
+            this.vst +=10;
+            this.scrollSlider.style.transform = `translateX(${-this.vst}px)`;
+            console.log('text', this.vst)
+        }
+
 
     }
 
@@ -89,14 +88,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
         generateMenu() {
-            //dodatkowo sprawdzenie
+            //dodatkowo sprawdzenie w momencie wczytania stron, gdzie jestesmy
             this.menu = document.querySelector(this.menuSelector);
             this.menuHeight = menu.offsetHeight;
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > this.lastScrollTop) {
                     this.menu.style.top = `-${this.menuHeight}px`;
-        
                 } else {
                     this.menu.style.top = '0';
                 }
