@@ -941,7 +941,7 @@ input {
 }
 
 .destinations-list {
-  position: relative;
+  position: absolute;
   left: 0;
   padding: 3.75rem 1.25rem;
   display: -webkit-box;
@@ -952,6 +952,10 @@ input {
   overflow-x: scroll;
   -webkit-transform: translateX(-20px);
           transform: translateX(-20px);
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
   scrollbar-width: none;
 }
 

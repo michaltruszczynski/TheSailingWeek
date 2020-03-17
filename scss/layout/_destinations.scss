@@ -2,24 +2,28 @@
     display: grid;
     grid-template-rows: auto;
     justify-items: center;
+    // display:flex;
+    // flex-direction: column;
+
 }
 
 .helper-wrapper-destinations-list {
-    height: 408px;
+    height: 408px; //to be changed - check the height of element
     width: 100%;
     position: relative;
 }
 
 .destinations-list {
-    position: relative;
+    position: absolute;
     left: 0;
-    // width: 120%;
+    // width: 100%;
     // width: 150%;
     padding: 3.75rem 1.25rem;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
     transform: translateX(-20px);
+    transition: transform 0.25s ease-out;
 
     scrollbar-width: none; //Firefox - no scrollbar
 

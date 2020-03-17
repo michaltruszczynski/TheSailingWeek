@@ -43,8 +43,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.scrollsliderSelector = scrollsliderSelector;
             this.scrollSlider = null;
             this.next = null;
-            this.vst = 0;
-            this.moved = null;
+            
+            this.transformedInitialValue = null;
+            this.scrollStart = false;
+            this.scrolledValue = 0;
             this.generateScrollSlider();
         }
 
@@ -54,14 +56,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.next.classList.add('carousel-slider__button', 'carousel-slider__button--left');
             this.next.addEventListener('click', this.slideleft.bind(this));
             this.scrollSlider.parentElement.appendChild(this.next);
-
+            // this.scrollSlider.appendChild(this.next);
 
         }
 
 
         generateScrollSlider() {
             this.scrollSlider = document.querySelector(this.scrollsliderSelector);
-            this.moved = getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim();
+            this.transformedInitialValue = getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim();
+            this.scrolledValue = -(+getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim());
             console.log(this.moved)
             // console.log(scrollSlider, this.prev);
             this.generateButtons();
@@ -69,9 +72,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         slideleft() {
             // this.scrollSlider.scrollLeft += 10;
-            this.vst +=10;
-            this.scrollSlider.style.transform = `translateX(${-this.vst}px)`;
-            console.log('text', this.vst)
+            this.scrolledValue +=300;
+            this.scrollSlider.style.transform = `translateX(${-this.scrolledValue}px)`;
+            console.log('text', this.scrolledValue)
         }
 
 
