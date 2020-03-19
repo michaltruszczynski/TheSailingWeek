@@ -639,32 +639,6 @@ input {
   background-color: #586066;
 }
 
-.carousel-slider__button {
-  background: rgba(241, 240, 238, 0.9);
-  border: none;
-  border-radius: 50%;
-  font-size: 2rem;
-  outline: none;
-  display: block;
-  font-weight: 400;
-  height: 2.5rem;
-  width: 2.5rem;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  z-index: 1;
-  cursor: pointer;
-}
-
-.carousel-slider__button--left {
-  left: 1rem;
-}
-
-.carousel-slider__button--right {
-  right: 1rem;
-}
-
 .menu {
   position: fixed;
   z-index: 3;
@@ -926,36 +900,33 @@ input {
   margin-top: 1.3em;
 }
 
-.section__container--destinations {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-  justify-items: center;
+.section--destinations-title {
+  margin: 0 auto;
 }
 
-.helper-wrapper-destinations-list {
-  height: 408px;
+.section--destinations-slider {
   width: 100%;
+  margin: 0 auto;
+}
+
+.section-slider {
+  margin: 0 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
 }
 
 .destinations-list {
-  position: absolute;
-  left: 0;
-  padding: 3.75rem 1.25rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  position: relative;
+  margin: 0 auto;
+  padding: 3.75rem 0 3.75rem 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow-x: scroll;
-  -webkit-transform: translateX(-20px);
-          transform: translateX(-20px);
-  -webkit-transition: -webkit-transform 0.25s ease-out;
-  transition: -webkit-transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
-  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
   scrollbar-width: none;
 }
 
@@ -981,6 +952,32 @@ input {
   font-size: 13px;
   font-weight: 300;
   display: block;
+}
+
+.carousel-slider__button {
+  background: rgba(241, 240, 238, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  outline: none;
+  display: block;
+  font-weight: 400;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.carousel-slider__button--left {
+  left: 1rem;
+}
+
+.carousel-slider__button--right {
+  right: 2rem;
 }
 
 .section__container--opinions {

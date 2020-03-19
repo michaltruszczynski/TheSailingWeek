@@ -287,28 +287,4 @@
 //     background-color: $clr-grey-medium;
 // }
 
-.carousel-slider__button {
-    background: rgba($clr-white-custom, 0.9);
-    // border: 1px solid $clr-black-custom;
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    outline: none;
-    display: block;
-    font-weight: 400;
-    height: 2.5rem;
-    width: 2.5rem;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    z-index: 1;
-    cursor: pointer;
-}
 
-.carousel-slider__button--left {
-    left: 1rem;
-}
-
-.carousel-slider__button--right {
-    right: 1rem;
-}

@@ -1,29 +1,26 @@
-.section__container--destinations {
-    display: grid;
-    grid-template-rows: auto;
-    justify-items: center;
-    // display:flex;
-    // flex-direction: column;
-
+.section--destinations-title {
+    margin: 0 auto;
 }
 
-.helper-wrapper-destinations-list {
-    height: 408px; //to be changed - check the height of element
+.section--destinations-slider {
     width: 100%;
+    margin: 0 auto;
+}
+
+.section-slider {
+    margin: 0 1.25rem;
+    // dodac box-shadow:
+    display: flex;
     position: relative;
 }
 
 .destinations-list {
-    position: absolute;
-    left: 0;
-    // width: 100%;
-    // width: 150%;
-    padding: 3.75rem 1.25rem;
-    display: flex;
+    position: relative;    
+    margin: 0 auto;
+    padding: 3.75rem 0 3.75rem 0;
+    display: inline-flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    transform: translateX(-20px);
-    transition: transform 0.25s ease-out;
 
     scrollbar-width: none; //Firefox - no scrollbar
 
@@ -50,4 +47,30 @@
     font-size: 13px;
     font-weight: 300;
     display: block;
+}
+
+
+.carousel-slider__button {
+    background: rgba($clr-white-custom, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    outline: none;
+    display: block;
+    font-weight: 400;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.carousel-slider__button--left {
+    left: 1rem;
+}
+
+.carousel-slider__button--right {
+    right: 2rem;
 }

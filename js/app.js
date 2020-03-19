@@ -39,42 +39,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     menuBtn.addEventListener('click', menuToggle);
 
     class ScrollSlider {
-        constructor(scrollsliderSelector, step) {
-            this.scrollsliderSelector = scrollsliderSelector;
-            this.scrollSlider = null;
-            this.next = null;
-            
-            this.transformedInitialValue = null;
-            this.scrollStart = false;
-            this.scrolledValue = 0;
-            this.generateScrollSlider();
-        }
-
-        generateButtons() {
-            this.next = document.createElement('button');
-            this.next.innerText = ' < ';
-            this.next.classList.add('carousel-slider__button', 'carousel-slider__button--left');
-            this.next.addEventListener('click', this.slideleft.bind(this));
-            this.scrollSlider.parentElement.appendChild(this.next);
-            // this.scrollSlider.appendChild(this.next);
-
-        }
-
-
-        generateScrollSlider() {
-            this.scrollSlider = document.querySelector(this.scrollsliderSelector);
-            this.transformedInitialValue = getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim();
-            this.scrolledValue = -(+getComputedStyle(this.scrollSlider).getPropertyValue('transform').split(',')[4].trim());
-            console.log(this.moved)
-            // console.log(scrollSlider, this.prev);
-            this.generateButtons();
-        }
-
-        slideleft() {
-            // this.scrollSlider.scrollLeft += 10;
-            this.scrolledValue +=300;
-            this.scrollSlider.style.transform = `translateX(${-this.scrolledValue}px)`;
-            console.log('text', this.scrolledValue)
+        constructor(scrollsliderSelector) {
+        
+        
         }
 
 
@@ -346,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const navBar = new NavBar('.menu');
 
-    const scrollSlider = new ScrollSlider('.destinations-list')
+    // const scrollSlider = new ScrollSlider('.destinations-list')
 
     console.log(window.innerWidth);
     console.log(document.documentElement.clientWidth);
