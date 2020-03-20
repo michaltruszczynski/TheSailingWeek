@@ -39,12 +39,56 @@ document.addEventListener("DOMContentLoaded", function (event) {
     menuBtn.addEventListener('click', menuToggle);
 
     class ScrollSlider {
-        constructor(scrollsliderSelector) {
-        
-        
+        constructor(scrollsliderSelector, step) {
+            this.scrollsliderSelector = scrollsliderSelector;
+            this.scrollSlider = null;
+            this.scrollSliderWidth = null;
+            this.next = null;
+            this.prev = null;
+            this.generateScrollSlider();
         }
 
+        generateButtons() {
+            this.next = document.createElement('button');
+            this.next.innerText = ' < ';
+            this.next.classList.add('carousel-slider__button', 'carousel-slider__button--left');
+            this.next.addEventListener('click', this.slideLeft.bind(this, 0.001, 300, 30));
+            this.scrollSlider.parentElement.appendChild(this.next);
 
+            this.prev = document.createElement('button');
+            this.prev.innerText = ' > ';
+            this.prev.classList.add('carousel-slider__button', 'carousel-slider__button--right');
+            this.prev.addEventListener('click', this.slideRight.bind(this, 0.001, 300, 30));
+            this.scrollSlider.parentElement.appendChild(this.prev);
+        }
+
+        generateScrollSlider() {
+            this.scrollSlider = document.querySelector(this.scrollsliderSelector);
+            // this.scrollSliderWidth = parseInt(getComputedStyle(this.scrollSlider).getPropertyValue('width'));
+            this.generateButtons();
+        }
+
+        slideLeft(speed, distance, step) {
+            let scrolledAmount = 0;
+            let scrollTimer = setInterval(function () {
+                this.scrollSlider.scrollLeft += step;
+                scrolledAmount += step;
+                if (scrolledAmount >= distance) {
+                    clearInterval(scrollTimer);
+                }
+            }.bind(this), speed);
+        }
+
+        slideRight(speed, distance, step) {
+            let scrolledAmount = 0;
+            let scrollTimer = setInterval(function () {
+                this.scrollSlider.scrollLeft -= step;
+                scrolledAmount += step;
+                if (scrolledAmount >= distance) {
+                    clearInterval(scrollTimer);
+                }
+            }.bind(this), speed);
+        }
     }
 
 
@@ -313,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const navBar = new NavBar('.menu');
 
-    // const scrollSlider = new ScrollSlider('.destinations-list')
+    const scrollSlider = new ScrollSlider('.destinations-list')
 
     console.log(window.innerWidth);
     console.log(document.documentElement.clientWidth);

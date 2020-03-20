@@ -10,8 +10,10 @@
 .section-slider {
     margin: 0 1.25rem;
     // dodac box-shadow:
+    // padding: 0 -1.25rem;
     display: flex;
     position: relative;
+    // overflow: visible;
 }
 
 .destinations-list {
@@ -21,7 +23,6 @@
     display: inline-flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
-
     scrollbar-width: none; //Firefox - no scrollbar
 
     &::-webkit-scrollbar { //No scrollbar
@@ -31,6 +32,10 @@
 
 .card--destination {
     margin-right: 1.25rem;
+}
+
+.photo--destination {
+    box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
 }
 
 .photo__img--destination {
