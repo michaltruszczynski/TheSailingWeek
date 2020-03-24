@@ -52,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.next = document.createElement('button');
             this.next.innerText = ' < ';
             this.next.classList.add('carousel-slider__button', 'carousel-slider__button--left');
-            this.next.addEventListener('click', this.slideLeft.bind(this, 0.001, 300, 30));
+            this.next.addEventListener('click', this.slideLeft.bind(this, 15, 300, 25));
             this.scrollSlider.parentElement.appendChild(this.next);
 
             this.prev = document.createElement('button');
             this.prev.innerText = ' > ';
             this.prev.classList.add('carousel-slider__button', 'carousel-slider__button--right');
-            this.prev.addEventListener('click', this.slideRight.bind(this, 0.001, 300, 30));
+            this.prev.addEventListener('click', this.slideRight.bind(this, 15, 300, 25));
             this.scrollSlider.parentElement.appendChild(this.prev);
         }
 

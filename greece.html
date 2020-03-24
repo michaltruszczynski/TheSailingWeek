@@ -5,27 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grecja</title>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 50%;
-        }
-
-        /* Optional: Makes the sample page fill the window. */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap&subset=latin-ext"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c4203a7dbd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/destination_greece.css">
 </head>
 
 <body>
+    <header>
+        <nav class="menu">
+            <div class="logo logo--menu">
+                <img src="images/icons/TSW_dark.png" class="logo__img" alt="logo">
+                <p class="logo__text">The Sailing Week</p>
+            </div>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Jak to działa?</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Kierunki</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Blog</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Rezerwuj</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Zaloguj się</a>
+                </li>
+            </ul>
+            <div class="menu__toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="section__container section-destination--intro">
+            <h2 class="section-destination__title">
+                Grecja, Zatoka Sarońska
+            </h2>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__container">
+            <div>
+            <h2>Grecja, Morze Jońskie</h2>
+            <div>
+                Czerwiec | Lipiec | Sierpień | Wrzesień
+            </div>
+            <div>
+                Ateny
+            </div>
+        </div>
+
+        <div>
+            <h3>Lorem ipsum dolor sit.</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, accusantium enim dolorum earum ipsa
+                alias libero facilis odit neque incidunt aut labore necessitatibus quod rerum velit doloribus tempora
+                repellat deleniti quo iure itaque accusamus delectus ducimus. Minus officia placeat, impedit adipisci
+                autem, et cupiditate architecto beatae illo delectus enim ratione eligendi atque perferendis facilis
+                deleniti consequuntur ut earum qui vel doloremque sint ipsam voluptatum. Voluptatibus, eveniet
+                similique? Consequatur, placeat maxime.</p>
+            <div>
+                <div>
+                    <div>
+                        <img src="https://img.icons8.com/wired/64/000000/speed.png" />
+                    </div>
+                    <div>
+                        <h4>Tępo</h4>
+                        <p>
+                            Lorem ipsum dolor.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="https://img.icons8.com/carbon-copy/100/000000/airport.png" />
+                    </div>
+                    <div>
+                        <h4>Transfer</h4>
+                        <p>Ateny Lotnisko (ATH)</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="https://img.icons8.com/wired/64/000000/beach.png" />
+                    </div>
+                    <div>
+                        <h4>Atrakcje</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>
+            Atrakcje
+        </h2>
+    </section>
+
+    <section>
+        <div id="googleMap"></div>
+
+    </section>
     <!-- AIzaSyDoO9IALePZIAP6Z0T7LeErCAdmH9klI7k -->
-    <div id="map"></div>
-    <button class="btn">Test</button>
     <script>
         // let map;
         // const options = {
@@ -34,34 +124,34 @@
         // }
 
         // let button = document.querySelector('.btn');
-        
+
         // button.addEventListener('click', function () {
         //     console.log('click', );
 
         // })
-        function initMap() {
-            const options = {
-                zoom: 8,
-                center: { lat: 42.3601, lng: -71.0589 }
-            }
-            let map = new google.maps.Map(document.getElementById('map'), options);
+        // function initMap() {
+        //     const options = {
+        //         zoom: 8,
+        //         center: { lat: 42.3601, lng: -71.0589 }
+        //     }
+        //     let map = new google.maps.Map(document.getElementById('map'), options);
 
-            let marker = new google.maps.Marker({
-                position: { lat: 42.4668, lng: -70.9495 },
-                map: map
-            })
+        //     let marker = new google.maps.Marker({
+        //         position: { lat: 42.4668, lng: -70.9495 },
+        //         map: map
+        //     })
 
-            let button = document.querySelector('.btn');
-        
-        button.addEventListener('click', function () {
-            console.log('click', map);
-            map.panTo({lat: 41.881, lng: -87.623})
-        })
+        //     let button = document.querySelector('.btn');
 
-        }
+        //     button.addEventListener('click', function () {
+        //         console.log('click', map);
+        //         map.panTo({ lat: 41.881, lng: -87.623 })
+        //     })
+
+        // }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnhJSBxlybV0Ipk_hbKIe8aYq15ljg6DA&callback=initMap"
-        async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnhJSBxlybV0Ipk_hbKIe8aYq15ljg6DA&callback=initMap"
+        async defer></script> -->
 </body>
 
 </html>
