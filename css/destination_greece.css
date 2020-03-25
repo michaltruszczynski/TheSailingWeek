@@ -382,7 +382,6 @@ input {
 .section {
   max-width: 1280px;
   margin: 5rem auto;
-  background-color: #f3f6f5;
 }
 
 .section__container {
@@ -745,5 +744,112 @@ input {
   .menu__toggle {
     display: block;
   }
+}
+
+.section-bg {
+  background: url(../images/destinations_greece/22218640_10155794680549516_2798242224195139258_o.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  width: 100%;
+}
+
+.section--destination-intro {
+  height: 100%;
+  width: 100%;
+}
+
+.section__container--destination-intro {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.section-destination__title {
+  position: absolute;
+  top: 40%;
+  font-size: 2.5rem;
+  color: #EDECEC;
+}
+
+.destination__title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.destination__dates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.destination__icon {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.destination__months {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.destination__airport {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.destination__airport-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.destination__second-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.destination__description {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.destination__features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.destination__feature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .destination__features {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.destination__feature-title {
+  margin: 0;
+}
+
+.destination__feature-description {
+  font-weight: 300;
+  margin: 0.25rem 0;
 }
 /*# sourceMappingURL=destination_greece.css.map */

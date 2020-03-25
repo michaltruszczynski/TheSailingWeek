@@ -1,0 +1,96 @@
+.section-bg {
+    // background: red;
+    background: url(../images/destinations_greece/22218640_10155794680549516_2798242224195139258_o.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    width: 100%;
+}
+
+.section--destination-intro {
+    height: 100%;
+    width: 100%;
+}
+
+.section__container--destination-intro {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.section-destination__title {
+    position: absolute;
+    top: 40%;
+    font-size: 2.5rem;
+    color: $clr-white-custom-dark;
+}
+
+.destination__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.destination__dates {
+    display: flex;
+    align-items: center;
+}
+
+.destination__icon {
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+// .destination__icon-feature--margin{
+//     margin-right: 0.75rem;
+// }
+
+.destination__months {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.destination__airport {
+    display: flex;
+    align-items: center;
+}
+
+.destination__airport-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.destination__second-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.destination__description {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.destination__features {
+    display: flex;
+}
+
+.destination__feature {
+    display: flex;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .destination__features {
+        flex-direction: column;
+    }
+}
+
+.destination__feature-title {
+    margin: 0;
+}
+
+.destination__feature-description {
+    font-weight: 300;
+    margin: 0.25rem 0;
+}
