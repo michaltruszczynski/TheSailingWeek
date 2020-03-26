@@ -398,6 +398,11 @@ input {
   margin: 0 auto;
 }
 
+.section__title--left {
+  text-align: left;
+  max-width: 1280px;
+}
+
 .section__text {
   max-width: 44rem;
   font-size: 1rem;
@@ -512,6 +517,9 @@ input {
   border-radius: 8px;
   text-align: center;
   margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .photo__title {
@@ -636,6 +644,103 @@ input {
 
 .slider__dot--active {
   background-color: #586066;
+}
+
+.section--footer {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section__container--footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section__container--footer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .footer__block {
+    display: none;
+  }
+}
+
+.logo--footer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.footer__block {
+  padding: 0.5rem;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #586066;
+}
+
+.footer__bottom {
+  background: #0088ff;
+  color: #F1F0EE;
+  padding: 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .footer__bottom {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer__icon {
+    margin: 0 0.5rem;
+  }
+}
+
+.footer__link-large {
+  text-decoration: none;
+  color: #F1F0EE;
+  font-weight: 600;
+  margin: 0 1rem;
+}
+
+.footer__icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
 }
 
 .menu {
@@ -851,5 +956,139 @@ input {
 .destination__feature-description {
   font-weight: 300;
   margin: 0.25rem 0;
+}
+
+.section--experiance {
+  margin: -2rem auto 1rem;
+}
+
+.buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 0;
+}
+
+.btn-type-one {
+  color: #586066;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  padding: 12px 20px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.btn-type-one--active {
+  color: #41889D;
+  border-bottom: 3px solid #41889D;
+}
+
+.section--experiance-slider {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card--experiance {
+  margin-right: 1.25rem;
+}
+
+.photo--experiance {
+  -webkit-box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+          box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+}
+
+.photo__img--experiance {
+  height: 176px;
+  width: 230px;
+}
+
+.photo__title--experiance {
+  font-size: 1.2rem;
+  font-weight: 600;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.photo__text {
+  font-size: 0.8rem;
+  font-weight: 300;
+  display: block;
+}
+
+.section-slider {
+  margin: 0 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.experiance-list {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.75rem 0 3.75rem 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.experiance-list::-webkit-scrollbar {
+  display: none;
+}
+
+.card--destination {
+  margin-right: 1.25rem;
+}
+
+.photo--destination {
+  -webkit-box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+          box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+}
+
+.photo__img--destination {
+  height: 288px;
+  width: 280px;
+}
+
+.phot__title--desination {
+  font-size: 19.2px;
+  font-weight: 600;
+}
+
+.photo__text {
+  font-size: 13px;
+  font-weight: 300;
+  display: block;
+}
+
+.carousel-slider__button {
+  background: rgba(241, 240, 238, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  outline: none;
+  display: block;
+  font-weight: 400;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.carousel-slider__button--left {
+  left: 1rem;
+}
+
+.carousel-slider__button--right {
+  right: 2rem;
 }
 /*# sourceMappingURL=destination_greece.css.map */

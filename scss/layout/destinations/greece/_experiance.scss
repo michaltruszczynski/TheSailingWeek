@@ -1,0 +1,130 @@
+.section--experiance {
+    margin: -2rem auto 1rem;
+}
+
+.buttons-container {
+    // text-align: center;
+    display: flex;
+    padding: 1rem 0;
+}
+
+
+// buttons
+.btn-type-one {
+    color: $clr-grey-medium;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    padding: 12px 20px;
+    transition: all 0.2s ease-out;
+}
+
+.btn-type-one--active {
+    color: $clr-bg;
+    border-bottom: 3px solid $clr-bg;
+}
+
+.section--experiance-slider {
+    width: 100%;
+    margin: 0 auto;
+}
+
+//card
+
+.card--experiance {
+    margin-right: 1.25rem;
+}
+
+.photo--experiance {
+    box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+}
+
+.photo__img--experiance {
+    height: 176px;
+    width: 230px;
+}
+
+.photo__title--experiance {
+    font-size: 1.2rem;
+    font-weight: 600;
+    align-self: flex-end;
+}
+
+.photo__text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    display: block;
+}
+
+
+//slider
+
+.section-slider {
+    margin: 0 1.25rem;
+    display: flex;
+    position: relative;
+}
+
+.experiance-list {
+    position: relative;
+    margin: 0 auto;
+    padding: 0.75rem 0 3.75rem 0;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none; //Firefox - no scrollbar
+
+    &::-webkit-scrollbar {
+        //No scrollbar
+        display: none;
+    }
+}
+
+.card--destination {
+    margin-right: 1.25rem;
+}
+
+.photo--destination {
+    box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
+}
+
+.photo__img--destination {
+    height: 288px;
+    width: 280px;
+}
+
+.phot__title--desination {
+    font-size: 19.2px;
+    font-weight: 600;
+}
+
+.photo__text {
+    font-size: 13px;
+    font-weight: 300;
+    display: block;
+}
+
+.carousel-slider__button {
+    background: rgba($clr-white-custom, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    outline: none;
+    display: block;
+    font-weight: 400;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.carousel-slider__button--left {
+    left: 1rem;
+}
+
+.carousel-slider__button--right {
+    right: 2rem;
+}
