@@ -38,6 +38,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     menuBtn.addEventListener('click', menuToggle);
 
+
+    class GoogleMapsApi {
+        constructor(googleApiKey) {
+            this.apiKey = googleApiKey;
+
+        }
+
+        load() {
+            if (!this.promise) {
+                this.promise = new Promise(resolve => {
+                    this.resolve = resolve;
+                    if(typeof window.google === 'undefined') {
+                        const script = document.createElement('script');
+                        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleApiKey}&callback=${this.callbackName}`;
+                        script.async = true;
+                        document.body.append(script);
+                    } else {
+                        this.resolve();
+                    }
+
+                });
+            }
+            return this.promise;
+        }
+
+        mapLoaded() {
+            if (!this.resolve) {
+                this.resolve()
+            }
+        }
+
+    }
+
     class ManageFilter {
         constructor(buttonsContainerSelector, elementsContainerSelector) {
             this.buttonsContainerSelector = buttonsContainerSelector;
@@ -50,34 +83,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             const buttonsContainer = document.querySelector(this.buttonsContainerSelector);
             this.experianceList = [...document.querySelector(this.elementsContainerSelector).children];
-            // console.log(experianceList);
-
-            //test
-            // let elemRef = document.querySelector('.section--experiance');
-            // console.log('e', elemRef.offsetLeft)
-
-            // let elemRef2 = document.querySelector('.section-slider');
-            // console.log('e', elemRef2.offsetLeft);
-
-            // const additionalDiv = document.createElement('div');
-            // additionalDiv.style.setProperty('height', "50px");
-            // // additionalDiv.style.setProperty('width', "150px");
-            // additionalDiv.style.setProperty('flex-shrink', "0");
-            // additionalDiv.innerText = 'pp'
-            // // additionalDiv.style.flexBasis = '500px'
-            // additionalDiv.style.background = 'red';
-            // additionalDiv.style.setProperty('width', `${elemRef.offsetLeft}px`)
-
-            // window.addEventListener('resize', function() {
-            //     additionalDiv.style.setProperty('width', `${elemRef.offsetLeft}px`)
-            // })
-
-            // document.querySelector('.experiance-list').prepend(additionalDiv);
 
             buttonsContainer.addEventListener('click', function (e) {
-                console.log(e.target);
-                let filterCriteria = e.target.getAttribute('data-exp-filter')
-                console.log(filterCriteria);
+                const filterCriteria = e.target.getAttribute('data-exp-filter')
 
                 this.experianceList.forEach(el => {
                     el.classList.remove('card--display-none')
@@ -86,17 +94,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 if (filterCriteria !== 'none')
                     this.experianceList.forEach(el => {
 
-                        // const elFilterArray = (el.dataset.filter);
-                        // el.setAttribute('data-temp', JSON.stringify({data: ['test', 'test']}))
                         const elFilterArray = el.getAttribute('data-filter');
-                        console.log(elFilterArray.split(','));
-                        // console.log(elFilterArray)
-                        // console.log(JSON.stringify(['acc', 'dd']))
-                        if (!elFilterArray.includes(filterCriteria)) {
-                            el.classList.toggle('card--display-none');
+                        if (elFilterArray) {
+                            if (!elFilterArray.includes(filterCriteria)) {
+                                el.classList.toggle('card--display-none');
+                            }
                         }
                     });
-
+ 
             }.bind(this))
         }
     }
@@ -110,6 +115,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.scrollSliderWidth = null;
             this.next = null;
             this.prev = null;
+            this.elemRef = null;
+            this.elemRefOffsetLeft = null;
             this.generateScrollSlider();
             this.checkLayout();
         }
@@ -130,19 +137,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         checkLayout() {
             const elemRef = document.querySelector(this.refSectionSelector);
-            const elemRefOffsetLeft = elemRef.offsetLeft;
-
+           const elemRefOffsetLeft = elemRef.offsetLeft;
+            // console.log('wywolanie', this.elemRef )
             const additionalDiv = document.createElement('div');
             additionalDiv.style.setProperty('height', "50px");
             additionalDiv.style.setProperty('flex-shrink', "0");
             additionalDiv.style.setProperty('width', `${elemRefOffsetLeft}px`);
             additionalDiv.style.background = 'red';
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
+                const elemRefOffsetLeft = elemRef.offsetLeft;
                 additionalDiv.style.setProperty('width', `${elemRefOffsetLeft}px`)
-            })
+                console.log('test', elemRefOffsetLeft)
+            }.bind(this))
 
             this.scrollSlider.prepend(additionalDiv);
-        
+
         }
 
         generateScrollSlider() {
