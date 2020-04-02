@@ -1,5 +1,5 @@
 .section--experiance {
-    margin: -2rem auto 1rem;
+    margin: -2rem auto -2rem;
 }
 
 .buttons-container {
@@ -35,6 +35,10 @@
     margin-right: 1.25rem;
 }
 
+.card--display-none {
+    display: none;
+}
+
 .photo--experiance {
     box-shadow: 0 0 1px 0 rgba(10, 22, 70, 0.06), 0 16px 16px -1px rgba(10, 22, 70, 0.1);
 }
@@ -67,9 +71,11 @@
 
 .experiance-list {
     position: relative;
-    margin: 0 auto;
-    padding: 0.75rem 0 3.75rem 0;
-    display: inline-flex;
+    // margin-top: -3rem;
+    padding: 3.75rem 0 3.75rem 0;
+    display: flex;
+    // flex: auto;
+    // justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: scroll;
     scrollbar-width: none; //Firefox - no scrollbar

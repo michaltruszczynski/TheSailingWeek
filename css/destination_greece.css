@@ -959,7 +959,7 @@ input {
 }
 
 .section--experiance {
-  margin: -2rem auto 1rem;
+  margin: -2rem auto -2rem;
 }
 
 .buttons-container {
@@ -991,6 +991,10 @@ input {
 
 .card--experiance {
   margin-right: 1.25rem;
+}
+
+.card--display-none {
+  display: none;
 }
 
 .photo--experiance {
@@ -1026,11 +1030,10 @@ input {
 
 .experiance-list {
   position: relative;
-  margin: 0 auto;
-  padding: 0.75rem 0 3.75rem 0;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  padding: 3.75rem 0 3.75rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow-x: scroll;
@@ -1090,5 +1093,9 @@ input {
 
 .carousel-slider__button--right {
   right: 2rem;
+}
+
+.map {
+  height: 500px;
 }
 /*# sourceMappingURL=destination_greece.css.map */

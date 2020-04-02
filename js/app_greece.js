@@ -42,29 +42,76 @@ document.addEventListener("DOMContentLoaded", function (event) {
         constructor(buttonsContainerSelector, elementsContainerSelector) {
             this.buttonsContainerSelector = buttonsContainerSelector;
             this.elementsContainerSelector = elementsContainerSelector;
+            this.experianceList = null;
             this.generateFilter();
         }
 
         generateFilter() {
+
             const buttonsContainer = document.querySelector(this.buttonsContainerSelector);
-            buttonsContainer.addEventListener('click', function(e) {
+            this.experianceList = [...document.querySelector(this.elementsContainerSelector).children];
+            // console.log(experianceList);
+
+            //test
+            // let elemRef = document.querySelector('.section--experiance');
+            // console.log('e', elemRef.offsetLeft)
+
+            // let elemRef2 = document.querySelector('.section-slider');
+            // console.log('e', elemRef2.offsetLeft);
+
+            // const additionalDiv = document.createElement('div');
+            // additionalDiv.style.setProperty('height', "50px");
+            // // additionalDiv.style.setProperty('width', "150px");
+            // additionalDiv.style.setProperty('flex-shrink', "0");
+            // additionalDiv.innerText = 'pp'
+            // // additionalDiv.style.flexBasis = '500px'
+            // additionalDiv.style.background = 'red';
+            // additionalDiv.style.setProperty('width', `${elemRef.offsetLeft}px`)
+
+            // window.addEventListener('resize', function() {
+            //     additionalDiv.style.setProperty('width', `${elemRef.offsetLeft}px`)
+            // })
+
+            // document.querySelector('.experiance-list').prepend(additionalDiv);
+
+            buttonsContainer.addEventListener('click', function (e) {
                 console.log(e.target);
                 let filterCriteria = e.target.getAttribute('data-exp-filter')
-                console.log(filterCriteria)
-            })
-        }
+                console.log(filterCriteria);
 
+                this.experianceList.forEach(el => {
+                    el.classList.remove('card--display-none')
+                })
+
+                if (filterCriteria !== 'none')
+                    this.experianceList.forEach(el => {
+
+                        // const elFilterArray = (el.dataset.filter);
+                        // el.setAttribute('data-temp', JSON.stringify({data: ['test', 'test']}))
+                        const elFilterArray = el.getAttribute('data-filter');
+                        console.log(elFilterArray.split(','));
+                        // console.log(elFilterArray)
+                        // console.log(JSON.stringify(['acc', 'dd']))
+                        if (!elFilterArray.includes(filterCriteria)) {
+                            el.classList.toggle('card--display-none');
+                        }
+                    });
+
+            }.bind(this))
+        }
     }
 
 
     class ScrollSlider {
-        constructor(scrollsliderSelector, step) {
+        constructor(scrollsliderSelector, refSectionSelector) {
             this.scrollsliderSelector = scrollsliderSelector;
+            this.refSectionSelector = refSectionSelector;
             this.scrollSlider = null;
             this.scrollSliderWidth = null;
             this.next = null;
             this.prev = null;
             this.generateScrollSlider();
+            this.checkLayout();
         }
 
         generateButtons() {
@@ -79,6 +126,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.prev.classList.add('carousel-slider__button', 'carousel-slider__button--right');
             this.prev.addEventListener('click', this.slideRight.bind(this, 15, 300, 25));
             this.scrollSlider.parentElement.appendChild(this.prev);
+        }
+
+        checkLayout() {
+            const elemRef = document.querySelector(this.refSectionSelector);
+            const elemRefOffsetLeft = elemRef.offsetLeft;
+
+            const additionalDiv = document.createElement('div');
+            additionalDiv.style.setProperty('height', "50px");
+            additionalDiv.style.setProperty('flex-shrink', "0");
+            additionalDiv.style.setProperty('width', `${elemRefOffsetLeft}px`);
+            additionalDiv.style.background = 'red';
+            window.addEventListener('resize', function() {
+                additionalDiv.style.setProperty('width', `${elemRefOffsetLeft}px`)
+            })
+
+            this.scrollSlider.prepend(additionalDiv);
+        
         }
 
         generateScrollSlider() {
@@ -376,8 +440,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const navBar = new NavBar('.menu');
 
-    const scrollSlider = new ScrollSlider('.experiance-list');
-    const filter = new ManageFilter('.buttons-container','.experiance-list' )
+    const scrollSlider = new ScrollSlider('.experiance-list', '.section--experiance');
+    const filter = new ManageFilter('.buttons-container', '.experiance-list')
 
     console.log(window.innerWidth);
     console.log(document.documentElement.clientWidth);
