@@ -43,6 +43,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         constructor(googleApiKey) {
             this.apiKey = googleApiKey;
 
+            if(!window._GoogleMapsApi) {
+                this.callbackName = '_GoogleMapsApi.mapLoaded';
+                window._GoogleMapsApi = this;
+                window._GoogleMapsApi.mapLoaded = this.mapLoaded.bind(this);
+            }
+
         }
 
         load() {
@@ -51,13 +57,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     this.resolve = resolve;
                     if(typeof window.google === 'undefined') {
                         const script = document.createElement('script');
-                        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleApiKey}&callback=${this.callbackName}`;
+                        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&callback=${this.callbackName}`;
                         script.async = true;
                         document.body.append(script);
                     } else {
                         this.resolve();
                     }
-
                 });
             }
             return this.promise;
@@ -452,7 +457,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const scrollSlider = new ScrollSlider('.experiance-list', '.section--experiance');
     const filter = new ManageFilter('.buttons-container', '.experiance-list')
 
+    const maptest = new GoogleMapsApi('AIzaSyCnhJSBxlybV0Ipk_hbKIe8aYq15ljg6DA');
+
+    // maptest.load().then((respond) => {
+    //     console.log('respond');
+        
+    // });
+    console.log(window);
     console.log(window.innerWidth);
+
     console.log(document.documentElement.clientWidth);
 
 });
