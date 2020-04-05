@@ -39,42 +39,46 @@ document.addEventListener("DOMContentLoaded", function (event) {
     menuBtn.addEventListener('click', menuToggle);
 
 
-    class GoogleMapsApi {
-        constructor(googleApiKey) {
-            this.apiKey = googleApiKey;
+    // class GoogleMapsApi {
+    //     constructor(googleApiKey) {
+    //         this.apiKey = googleApiKey;
 
-            if(!window._GoogleMapsApi) {
-                this.callbackName = '_GoogleMapsApi.mapLoaded';
-                window._GoogleMapsApi = this;
-                window._GoogleMapsApi.mapLoaded = this.mapLoaded.bind(this);
-            }
+    //         if (!window._GoogleMapsApi) {
+    //             this.callbackName = '_GoogleMapsApi.mapLoaded';
+    //             window._GoogleMapsApi = this;
+    //             window._GoogleMapsApi.mapLoaded = this.mapLoaded.bind(this);
+    //         }
 
-        }
+    //     }
 
-        load() {
-            if (!this.promise) {
-                this.promise = new Promise(resolve => {
-                    this.resolve = resolve;
-                    if(typeof window.google === 'undefined') {
-                        const script = document.createElement('script');
-                        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&callback=${this.callbackName}`;
-                        script.async = true;
-                        document.body.append(script);
-                    } else {
-                        this.resolve();
-                    }
-                });
-            }
-            return this.promise;
-        }
+    //     load() {
+    //         console.log('test load')
+    //         if (!this.promise) {
+    //             this.promise = new Promise(resolve => {
+    //                 this.resolve = resolve;
+    //                 if (typeof window.google === 'undefined') {
+    //                     console.log('test load two')
+    //                     const script = document.createElement('script');
+    //                     script.src = `//maps.googleapis.com/maps/api/js?key=${this.apiKey}&callback=${this.callbackName}`;
+    //                     script.async = true;
+    //                     // script.defer = true;
+    //                     document.body.append(script);
+    //                 } else {
+    //                     this.resolve();
+    //                 }
+    //             });
+    //         }
+    //         return this.promise;
+    //     }
 
-        mapLoaded() {
-            if (!this.resolve) {
-                this.resolve()
-            }
-        }
+    //     mapLoaded() {
+    //         if (this.resolve) {
+    //             console.log('test')
+    //             this.resolve();
 
-    }
+    //         }
+    //     }
+    // }
 
     class ManageFilter {
         constructor(buttonsContainerSelector, elementsContainerSelector) {
@@ -106,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             }
                         }
                     });
- 
+
             }.bind(this))
         }
     }
@@ -142,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         checkLayout() {
             const elemRef = document.querySelector(this.refSectionSelector);
-           const elemRefOffsetLeft = elemRef.offsetLeft;
+            const elemRefOffsetLeft = elemRef.offsetLeft;
             // console.log('wywolanie', this.elemRef )
             const additionalDiv = document.createElement('div');
             additionalDiv.style.setProperty('height', "50px");
@@ -457,12 +461,318 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const scrollSlider = new ScrollSlider('.experiance-list', '.section--experiance');
     const filter = new ManageFilter('.buttons-container', '.experiance-list')
 
-    const maptest = new GoogleMapsApi('AIzaSyCnhJSBxlybV0Ipk_hbKIe8aYq15ljg6DA');
+    ///
+    const mapStyles = [
+        {
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#444444"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.locality",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#f2f2f2"
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                },
+                {
+                    "saturation": "-65"
+                },
+                {
+                    "lightness": "45"
+                },
+                {
+                    "gamma": "1.78"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "lightness": 45
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.line",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "saturation": "-33"
+                },
+                {
+                    "lightness": "22"
+                },
+                {
+                    "gamma": "2.08"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.airport",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "gamma": "2.08"
+                },
+                {
+                    "hue": "#ffa200"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.airport",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.rail",
+            "elementType": "labels.text",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.rail",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                },
+                {
+                    "saturation": "-55"
+                },
+                {
+                    "lightness": "-2"
+                },
+                {
+                    "gamma": "1.88"
+                },
+                {
+                    "hue": "#ffab00"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#bbd9e5"
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        }
+    ]
 
-    // maptest.load().then((respond) => {
-    //     console.log('respond');
-        
-    // });
+
+
+    class GoogleMapsApi {
+        /**
+         * Constructor set up config.
+         */
+        constructor() {
+            // api key for google maps
+            this.apiKey = 'AIzaSyCnhJSBxlybV0Ipk_hbKIe8aYq15ljg6DA';
+
+            // set a globally scoped callback if it doesn't already exist
+            if (!window._GoogleMapsApi) {
+                this.callbackName = '_GoogleMapsApi.mapLoaded';
+                window._GoogleMapsApi = this;
+                window._GoogleMapsApi.mapLoaded = this.mapLoaded.bind(this);
+            }
+        }
+
+        /**
+         * Load the Google Maps API javascript
+         */
+        load() {
+            if (!this.promise) {
+                this.promise = new Promise(resolve => {
+                    this.resolve = resolve;
+                    if (typeof window.google === 'undefined') {
+                        const script = document.createElement('script');
+                        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&callback=${this.callbackName}`;
+                        script.async = true;
+                        document.body.append(script);
+                    } else {
+                        this.resolve();
+                    }
+                });
+            }
+
+            return this.promise;
+        }
+
+        /**
+         * Globally scoped callback for the map loaded
+         */
+        mapLoaded() {
+            if (this.resolve) {
+                this.resolve();
+            }
+        }
+    }
+
+
+
+    const maptest = new GoogleMapsApi();
+
+
+
+
+    let map;
+    const options = {
+        zoom: 8,
+        center: { lat: 42.3601, lng: -71.0589 }
+    }
+
+    let button = document.querySelector('.btn');
+
+    // button.addEventListener('click', function () {
+    //     console.log('click', );
+
+    // })
+    function initMap() {
+        const options = {
+            styles: mapStyles,
+            zoom: 8,
+            center: { lat: 37.9838, lng: 23.7275 }
+        }
+        let map = new google.maps.Map(document.querySelector('.map'), options);
+
+        let marker = new google.maps.Marker({
+            position: { lat: 42.4668, lng: -70.9495 },
+            map: map
+        })
+        console.log('test')
+        // let button = document.querySelector('.btn');
+
+        // button.addEventListener('click', function () {
+        //     console.log('click', map);
+        //     map.panTo({ lat: 41.881, lng: -87.623 })
+        // })
+
+
+    }
+
+    // console.log(maptest.load())
+    maptest.load()
+        .then((respond) => {
+            initMap();
+        }).catch(err => {
+            console.log(err)
+        });
     console.log(window);
     console.log(window.innerWidth);
 

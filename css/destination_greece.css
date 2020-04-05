@@ -1095,7 +1095,38 @@ input {
   right: 2rem;
 }
 
+.section-map {
+  width: 100%;
+  margin: 5rem auto;
+  background: blue;
+}
+
+.section-map__container {
+  position: relative;
+}
+
 .map {
-  height: 500px;
+  height: 50rem;
+}
+
+.overlay-map {
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  z-index: 2;
+}
+
+.overlay-map--top {
+  top: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f6f5), to(rgba(255, 255, 255, 0)));
+  background-image: linear-gradient(#f3f6f5, rgba(255, 255, 255, 0));
+}
+
+.overlay-map--bottom {
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#f3f6f5));
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #f3f6f5);
 }
 /*# sourceMappingURL=destination_greece.css.map */
