@@ -9,6 +9,7 @@
 }
 
 .map {
+    position: relative;
     height: 50rem;
 }
 
@@ -16,7 +17,7 @@
     position: absolute;
     height: 150px;
     width: 100%;
-    z-index: 2;
+    // z-index: 2;
 }
 
 .overlay-map--top {
